@@ -4,7 +4,7 @@
             android:shape="rectangle">
             <stroke android:color="@color/colorPrimary" android:width="3dip"/>
             <solid
-                android:color="@android:color/background_light" />
+                android:color="@color/profileSquareBackground" />
         </shape>
     </item>
     <item android:right="2dp" android:left="2dp" android:bottom="30dp"
@@ -17,7 +17,7 @@
             android:thickness="50dp"
             android:useLevel="false">
 
-            <solid android:color="@color/colorPrimary" />
+            <solid android:color="@color/profileCircleBackground" />
 
             <size
                 android:height="50dp"
