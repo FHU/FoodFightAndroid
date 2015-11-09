@@ -1,0 +1,161 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="edu.fhu.foodfight.HistoryFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@color/darkOrange"
+            android:id="@+id/profiles">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:minWidth="40dp"
+                android:id="@+id/user_image_view" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/user_image_view"
+                android:paddingLeft="16dp"
+                android:layout_alignParentTop="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="User Name"
+                android:textColor="@android:color/white"
+                android:id="@+id/user_first_name_text_view" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:minWidth="40dp"
+                android:id="@+id/opponent_image_view" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@id/opponent_image_view"
+                android:layout_toRightOf="@id/user_first_name_text_view"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAlignment="viewEnd"
+                android:layout_gravity="end"
+                android:text="Opponent Name"
+                android:textColor="@android:color/white"
+                android:id="@+id/opponent_first_name_text_view"
+                android:textIsSelectable="false" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profiles"
+            android:text="Breakfast"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:padding="8dp"
+            android:background="@color/yellow"
+            android:id="@+id/breakfast_header_text_view"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/breakfast_header_text_view"
+            android:id="@+id/breakfast_images">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="40dp"
+                android:id="@+id/user_breakfast_image_view" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="40dp"
+                android:id="@+id/opponent_breakfast_image_view" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/breakfast_images"
+            android:text="Lunch"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:padding="8dp"
+            android:background="@color/yellow"
+            android:id="@+id/lunch_header_text_view"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lunch_header_text_view"
+            android:id="@+id/lunch_images">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="40dp"
+                android:id="@+id/user_lunch_image_view" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="40dp"
+                android:id="@+id/opponent_lunch_image_view" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lunch_images"
+            android:text="Dinner"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:padding="8dp"
+            android:background="@color/yellow"
+            android:id="@+id/dinner_header_text_view"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dinner_header_text_view">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="40dp"
+                android:id="@+id/user_dinner_image_view" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="40dp"
+                android:id="@+id/opponent_dinner_image_view" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
