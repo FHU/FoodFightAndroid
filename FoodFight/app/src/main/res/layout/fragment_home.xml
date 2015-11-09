@@ -1,7 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context="edu.fhu.foodfight.HomeFragment">
-
+    
     <!-- TODO: Update blank fragment layout -->
     <TextView android:layout_width="match_parent" android:layout_height="match_parent"
         android:text="HOME" />
@@ -11,5 +11,111 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"
         android:layout_gravity="center_horizontal|top" />
+     
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="559dp"
+        android:layout_gravity="center_horizontal|top">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:id="@+id/mealsToday"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:id="@+id/imageView2"
+                android:layout_alignTop="@+id/imageView3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/emptydish" />
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:id="@+id/imageView3"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/emptydish" />
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:id="@+id/imageView4"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/emptydish" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current Fights"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:padding="8dp"
+            android:background="@color/yellow"
+            android:id="@+id/current_fights_view"
+            android:layout_below="@+id/mealsToday"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Finished Fights"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:padding="8dp"
+            android:background="@color/yellow"
+            android:id="@+id/dinner_header_text_view"
+            android:layout_marginBottom="186dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dinner_header_text_view">
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="40dp"
+            android:id="@+id/user_lunch_image_view"
+            android:layout_above="@+id/dinner_header_text_view"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="133dp" />
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/currentfights"
+            android:layout_below="@+id/current_fights_view"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/dinner_header_text_view" />
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/finishedFights"
+            android:layout_below="@+id/currentfights"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="47dp" />
+
+    </RelativeLayout>
 
 </FrameLayout>

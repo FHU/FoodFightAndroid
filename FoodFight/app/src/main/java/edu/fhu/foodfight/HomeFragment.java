@@ -1,14 +1,14 @@
 package edu.fhu.foodfight;
 
-import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,13 +27,6 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    String[] codeLearnChapters = new String[] { "Android Introduction",
-            "Android Setup/Installation",
-            "Android Hello World",
-            "Android Layouts/Viewgroups",
-            "Android Activity & Lifecycle",
-            "Intents in Android"};
 
     private OnFragmentInteractionListener mListener;
 
@@ -66,13 +59,37 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+
+        View homeView = inflater.inflate(R.layout.fragment_home, container, false);
+
+        Fight[] fights = {new Fight(new Date(), new Date() , "Jesse", "Avery", 1),
+                new Fight(new Date(), new Date() , "Jesse", "Seth", 1),
+                new Fight(new Date(), new Date() , "Jesse", "Tyler", 1),
+                new Fight(new Date(), new Date() , "Jesse", "Eli", 2),
+                new Fight(new Date(), new Date() , "Jesse", "Kenan", 1),
+                new Fight(new Date(), new Date() , "Jesse", "Audrey", 2),
+                new Fight(new Date(), new Date() , "Jesse", "Jason", 1),
+                new Fight(new Date(), new Date() , "Jesse", "Wesley", 2)
+        };
+
+        FightsAdapter fightAdapter = new FightsAdapter(this.getActivity(), fights);
+        System.out.println("GOT HERE MAN");
+        ListView fightListView = (ListView) homeView.findViewById(R.id.currentfights);
+        ListView finishedFightsLIstView = (ListView) homeView.findViewById(R.id.finishedFights);
+        System.out.println("GOT HERE MAN 2");
+        fightListView.setAdapter(fightAdapter);
+        finishedFightsLIstView.setAdapter(fightAdapter);
+
+        fightAdapter.notifyDataSetChanged();
+
+        return homeView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
