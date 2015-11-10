@@ -59,6 +59,8 @@ public class CameraFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        //cameraRelativeLayout.getLayoutParams().height = cameraRelativeLayout.getMeasuredWidth();
         return inflater.inflate(R.layout.fragment_camera, container, false);
     }
 
