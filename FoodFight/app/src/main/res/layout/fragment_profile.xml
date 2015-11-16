@@ -12,13 +12,12 @@
         android:orientation="vertical" >
 
 
-        <edu.fhu.foodfight.MLRoundedImageView
+        <edu.fhu.foodfight.CircleImageView
             android:id="@+id/profileImage"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:paddingTop="0dp"
             android:src="@drawable/profilephoto"
-            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp" />
 

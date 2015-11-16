@@ -73,7 +73,6 @@ public class ProfileFragment extends Fragment {
 
         TextView t = (TextView) myInflatedView.findViewById(R.id.profileName);
 
-
         return myInflatedView;
     }
 
