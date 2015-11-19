@@ -144,7 +144,7 @@ public class HomeFragment extends Fragment {
         Fragment fragment;
         FragmentTransaction ft = getFragmentManager().beginTransaction();
 
-        fragment = new HistoryFragment();
+        fragment = new FightDetailsFragment();
         ft.replace(R.id.content_frame, fragment);
         ft.commit();
     }

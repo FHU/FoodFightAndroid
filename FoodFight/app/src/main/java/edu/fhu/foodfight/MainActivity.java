@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity
             ft.commit();
 
         } else if (id == R.id.nav_history) {
-            fragment = new HistoryFragment();
+            fragment = new FightDetailsFragment();
             ft.replace(R.id.content_frame, fragment);
             ft.commit();
 
