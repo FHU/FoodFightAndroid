@@ -39,7 +39,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/mealtype_View"
+                android:id="@+id/mealTypeText"
                 android:text="Breakfast"
                 android:textColor="#ffffff"
                 android:textSize="28dp"
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Food, Glorious Food"
-                android:id="@+id/descriptionView"
+                android:id="@+id/descriptionText"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/darkOrange" />

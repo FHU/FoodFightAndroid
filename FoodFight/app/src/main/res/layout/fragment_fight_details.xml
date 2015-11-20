@@ -1,59 +1,63 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="edu.fhu.foodfight.HistoryFragment">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.fhu.foodfight.FightDetailsFragment"
+    android:background="@android:color/white"
+    android:fillViewport="true">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:padding="12dp"
             android:background="@color/darkOrange"
             android:id="@+id/profiles">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:minWidth="40dp"
+            <edu.fhu.foodfight.CircleImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/nopic"
                 android:id="@+id/user_image_view" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/user_image_view"
-                android:paddingLeft="16dp"
-                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:paddingLeft="8dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="User Name"
                 android:textColor="@android:color/white"
                 android:id="@+id/user_first_name_text_view" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:minWidth="40dp"
-                android:id="@+id/opponent_image_view" />
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_toLeftOf="@id/opponent_image_view"
-                android:layout_toRightOf="@id/user_first_name_text_view"
+                android:layout_weight="1"
+                android:paddingRight="8dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textAlignment="viewEnd"
-                android:layout_gravity="end"
                 android:text="Opponent Name"
+                android:textAlignment="textEnd"
+                android:layout_gravity="end"
                 android:textColor="@android:color/white"
                 android:id="@+id/opponent_first_name_text_view"
                 android:textIsSelectable="false" />
 
-        </RelativeLayout>
+            <edu.fhu.foodfight.CircleImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/nopic"
+                android:id="@+id/opponent_image_view" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -77,14 +81,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:minHeight="40dp"
+                android:src="@drawable/plate7"
                 android:id="@+id/user_breakfast_image_view" />
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:minHeight="40dp"
+                android:src="@drawable/plate7"
                 android:id="@+id/opponent_breakfast_image_view" />
 
         </LinearLayout>
@@ -111,14 +115,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:minHeight="40dp"
+                android:src="@drawable/plate7"
                 android:id="@+id/user_lunch_image_view" />
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:minHeight="40dp"
+                android:src="@drawable/plate7"
                 android:id="@+id/opponent_lunch_image_view" />
 
         </LinearLayout>
@@ -144,18 +148,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:minHeight="40dp"
+                android:src="@drawable/plate7"
                 android:id="@+id/user_dinner_image_view" />
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:minHeight="40dp"
+                android:src="@drawable/plate7"
                 android:id="@+id/opponent_dinner_image_view" />
 
         </LinearLayout>
 
     </RelativeLayout>
 
-</FrameLayout>
+</ScrollView>

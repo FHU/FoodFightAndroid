@@ -1,8 +1,11 @@
 package edu.fhu.foodfight;
 
+import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.view.LayoutInflater;
@@ -79,11 +82,17 @@ public class HomeFragment extends Fragment {
                 new Fight(new Date(), new Date() , "Jesse", "Wesley", 2)
         };
 
+        FloatingActionButton fab = (FloatingActionButton) homeView.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newFight();
+            }
+        });
+
         FightsAdapter fightAdapter = new FightsAdapter(this.getActivity(), fights);
-        System.out.println("GOT HERE MAN");
         ListView fightListView = (ListView) homeView.findViewById(R.id.currentfights);
         ListView finishedFightsLIstView = (ListView) homeView.findViewById(R.id.finishedFights);
-        System.out.println("GOT HERE MAN 2");
         fightListView.setAdapter(fightAdapter);
         finishedFightsLIstView.setAdapter(fightAdapter);
 
@@ -129,6 +138,15 @@ public class HomeFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
+    }
+
+    public void newFight() {
+        Fragment fragment;
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+        fragment = new FightDetailsFragment();
+        ft.replace(R.id.content_frame, fragment);
+        ft.commit();
     }
 
 }
