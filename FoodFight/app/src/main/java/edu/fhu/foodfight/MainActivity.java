@@ -115,7 +115,6 @@ public class MainActivity extends AppCompatActivity
             ft.commit();
 
         } else if (id == R.id.nav_profile) {
-
             fragment = new ProfileFragment();
             ft.replace(R.id.content_frame, fragment);
             ft.commit();
