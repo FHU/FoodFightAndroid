@@ -26,6 +26,7 @@
             android:layout_centerInParent="true"
             android:background="@drawable/camera1"
             android:clickable="true"/>
+
     </RelativeLayout>
 
     <RelativeLayout
