@@ -11,11 +11,15 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
+import java.util.Date;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FightDetailsFragment extends Fragment {
+
+    public Fight thisFight;
 
     public FightDetailsFragment() {
         // Required empty public constructor
