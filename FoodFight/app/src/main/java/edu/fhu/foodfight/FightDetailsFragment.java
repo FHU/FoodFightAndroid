@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 
 
 /**
@@ -55,6 +56,84 @@ public class FightDetailsFragment extends Fragment {
                 ft.commit();
             }
 
+        });
+
+        ImageView userBreakfastImageView = (ImageView)v.findViewById(R.id.user_breakfast_image_view);
+        userBreakfastImageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment;
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+                fragment = new MealDetailsFragment();
+                ft.replace(R.id.content_frame, fragment);
+                ft.commit();
+            }
+        });
+
+        ImageView opponentBreakfastImageView = (ImageView)v.findViewById(R.id.opponent_breakfast_image_view);
+        opponentBreakfastImageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment;
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+                fragment = new MealDetailsFragment();
+                ft.replace(R.id.content_frame, fragment);
+                ft.commit();
+            }
+        });
+
+        ImageView userLunchImageView = (ImageView)v.findViewById(R.id.user_lunch_image_view);
+        userLunchImageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment;
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+                fragment = new MealDetailsFragment();
+                ft.replace(R.id.content_frame, fragment);
+                ft.commit();
+            }
+        });
+
+        ImageView opponentLunchImageView = (ImageView)v.findViewById(R.id.opponent_lunch_image_view);
+        opponentLunchImageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment;
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+                fragment = new MealDetailsFragment();
+                ft.replace(R.id.content_frame, fragment);
+                ft.commit();
+            }
+        });
+
+        ImageView userDinnerImageView = (ImageView)v.findViewById(R.id.user_dinner_image_view);
+        userDinnerImageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment;
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+                fragment = new MealDetailsFragment();
+                ft.replace(R.id.content_frame, fragment);
+                ft.commit();
+            }
+        });
+
+        ImageView opponentDinnerImageView = (ImageView)v.findViewById(R.id.opponent_dinner_image_view);
+        opponentDinnerImageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment;
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+                fragment = new MealDetailsFragment();
+                ft.replace(R.id.content_frame, fragment);
+                ft.commit();
+            }
         });
 
         return v;
