@@ -1,5 +1,6 @@
 package edu.fhu.foodfight;
 
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -96,28 +97,44 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the home action
             fragment = new HomeFragment();
-            ft.replace(R.id.content_frame, fragment);
-            ft.commit();
+            ft.replace(R.id.content_frame, fragment)
+                    //ft.replace(R.id.content_frame, fragment)
+                    //.addToBackStack(null)
+                    .commit();
+
+            /*getSupportFragmentManager().beginTransaction()
+                    .add(detailFragment, "detail")
+                            // Add this transaction to the back stack
+                    .addToBackStack()
+                    .commit();*/
 
         } else if (id == R.id.nav_history) {
             fragment = new FightDetailsFragment();
-            ft.replace(R.id.content_frame, fragment);
-            ft.commit();
+            ft.replace(R.id.content_frame, fragment)
+                    //ft.replace(R.id.content_frame, fragment)
+                    //.addToBackStack(null)
+                    .commit();
 
         } else if (id == R.id.nav_camera) {
             fragment = new CameraFragment();
-            ft.replace(R.id.content_frame, fragment);
-            ft.commit();
+            ft.replace(R.id.content_frame, fragment)
+                    //ft.replace(R.id.content_frame, fragment)
+                    //.addToBackStack(null)
+                    .commit();
 
         } else if (id == R.id.nav_leaderboard) {
             fragment = new LeaderboardFragment();
-            ft.replace(R.id.content_frame, fragment);
-            ft.commit();
+            ft.replace(R.id.content_frame, fragment)
+                    //ft.replace(R.id.content_frame, fragment)
+                    //.addToBackStack(null)
+                    .commit();
 
         } else if (id == R.id.nav_profile) {
             fragment = new ProfileFragment();
-            ft.replace(R.id.content_frame, fragment);
-            ft.commit();
+            ft.replace(R.id.content_frame, fragment)
+                    //ft.replace(R.id.content_frame, fragment)
+                    //.addToBackStack(null)
+                    .commit();
             //PlusOneFragment p1f = new PlusOneFragment();
             //ft.replace(R.id.content_frame, (Fragment)p1f);
             //ft.commit();

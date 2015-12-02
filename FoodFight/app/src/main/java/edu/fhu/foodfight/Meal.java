@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Meal {
     // attributes
+    public String id;
 
     private Image image;
     private int score;
@@ -13,4 +14,11 @@ public class Meal {
     private Date submissionDate;
 
     // methods
+
+    public Meal(String id, int score, MealType mealType, Date submissionDate) {
+        this.id = id;
+        this.score = score;
+        this.mealType = mealType;
+        this.submissionDate = submissionDate;
+    }
 }

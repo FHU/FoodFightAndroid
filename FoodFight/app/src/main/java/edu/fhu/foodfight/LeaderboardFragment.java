@@ -73,8 +73,8 @@ public class LeaderboardFragment extends Fragment implements AbsListView.OnItemC
         }
 
         // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
+        mAdapter = new ArrayAdapter<Meal>(getActivity(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.Meals);
     }
 
     @Override
@@ -114,7 +114,7 @@ public class LeaderboardFragment extends Fragment implements AbsListView.OnItemC
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
+            mListener.onFragmentInteraction(DummyContent.Meals.get(position).id);
         }
     }
 

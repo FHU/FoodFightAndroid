@@ -1,23 +1,31 @@
 package edu.fhu.foodfight;
 
+import android.os.Parcelable;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Dictionary;
 
 /**
  * Created by jesse on 11/7/15.
  */
-public class Fight {
+public class Fight  {
     // attributes
+
+    public String id;
+
+    public String userId;
+    public String opponentId = "";
 
     public Date startDate = new Date();
     public Date endDate = new Date();
 
-    public String meId = "";
-    public String rivalId = "";
-
     public String currentMeal = "BREAKFAST";
 
-    public int numberOfMeals = 0;
+    public ArrayList<Meal> userMeals = new ArrayList<Meal>();
+    public ArrayList<Meal> opponentMeals= new ArrayList<Meal>();
+
+    public int numberOfMeals = 3;
 
     public Boolean isFightFinished() {
         if (endDate.getTime() - startDate.getTime() > 0) {
@@ -60,11 +68,11 @@ public class Fight {
        this.currentMeal = meal;
     }
 
-    public Fight(Date startDate, Date endDate, String thisId, String rivalId, int numberOfMeals ) {
+    public Fight(Date startDate, Date endDate, String userId, String opponentId, String fightId ) {
+        this.id = fightId;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.meId = thisId;
-        this.rivalId = rivalId;
-        this.numberOfMeals = numberOfMeals;
+        this.userId = userId;
+        this.opponentId = opponentId;
     }
 }
