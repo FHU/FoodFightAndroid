@@ -11,12 +11,12 @@ public class User {
     // attributes
     public String username;
     private Date joinDate;
-    private String userFirstName;
-    private String userLastName;
+    public String userFirstName;
+    public String userLastName;
     private Meal[] meals;
     private Fight[] fights;
     private int level;
-    private Image profilePicture;
+    public Image profilePicture;
 
     private Fight[] currentFights;
 

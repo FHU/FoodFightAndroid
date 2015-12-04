@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import android.media.Image;
 
 import edu.fhu.foodfight.Fight;
 import edu.fhu.foodfight.Meal;
@@ -38,7 +39,7 @@ public class DummyContent {
 
     static {
         // Add 3 sample items.
-        addUser(new User("Harry", "Harry", "Potter", null, 40));
+        addUser(new User("Harry", "Harry", "Potter", Image(), 40));
         addUser(new User("Hermione", "Hermione", "Granger", null, 30));
         addUser(new User("Ron", "Ron", "Weasley", null, 32));
         addUser(new User("Snape", "Severus", "Snape", null, 7));

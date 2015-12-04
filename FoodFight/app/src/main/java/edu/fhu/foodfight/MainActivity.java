@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_frame, fragment);
 
             Bundle args = new Bundle();
-            args.putString(ARG_PARAM1, "averycupples");
+            args.putString(ARG_PARAM1, "Harry");
             fragment.setArguments(args);
 
             ft.commit();

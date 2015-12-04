@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.*;
 import android.graphics.*;
 
+import edu.fhu.foodfight.dummy.DummyContent;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +30,8 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private User user;
 
     private OnFragmentInteractionListener mListener;
 
@@ -71,11 +75,17 @@ public class ProfileFragment extends Fragment {
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
+            user = DummyContent.UsersMap.get(mParam1);
         }
+
+        String userName = user.username;
+        String firstName = user.userFirstName;
+        String lastName = user.userLastName;
+
         View myInflatedView = inflater.inflate(R.layout.fragment_profile, container,false);
 
         TextView t = (TextView) myInflatedView.findViewById(R.id.profileName);
-        t.setText(mParam2);
+        t.setText(firstName + " " + lastName);
         return myInflatedView;
     }
 
