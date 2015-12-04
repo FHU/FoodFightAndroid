@@ -69,10 +69,13 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+        }
         View myInflatedView = inflater.inflate(R.layout.fragment_profile, container,false);
 
         TextView t = (TextView) myInflatedView.findViewById(R.id.profileName);
-
+        t.setText(mParam2);
         return myInflatedView;
     }
 
