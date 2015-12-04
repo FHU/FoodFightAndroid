@@ -23,6 +23,9 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String ARG_PARAM1 = "currentUser";
+    private static final String ARG_PARAM2 = "param2";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,6 +120,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_profile) {
             fragment = new ProfileFragment();
             ft.replace(R.id.content_frame, fragment);
+
+            Bundle args = new Bundle();
+            args.putString(ARG_PARAM1, "Harry");
+            fragment.setArguments(args);
+
             ft.commit();
             //PlusOneFragment p1f = new PlusOneFragment();
             //ft.replace(R.id.content_frame, (Fragment)p1f);

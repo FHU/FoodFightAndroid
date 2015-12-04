@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.*;
 import android.graphics.*;
 
+import edu.fhu.foodfight.dummy.DummyContent;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,12 +24,14 @@ import android.graphics.*;
 public class ProfileFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM1 = "currentUser";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private User user;
 
     private OnFragmentInteractionListener mListener;
 
@@ -69,10 +73,23 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            user = DummyContent.UsersMap.get(mParam1);
+        }
+
+        String userName = user.username;
+        String firstName = user.userFirstName;
+        String lastName = user.userLastName;
+        String imageURL = user.imageURL;
+
         View myInflatedView = inflater.inflate(R.layout.fragment_profile, container,false);
 
         TextView t = (TextView) myInflatedView.findViewById(R.id.profileName);
+        ImageView image = (ImageView) myInflatedView.findViewById(R.id.profileImage);
 
+        new ImageDownloader(image).execute(imageURL);
+        t.setText(firstName + " " + lastName);
         return myInflatedView;
     }
 

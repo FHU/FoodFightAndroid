@@ -9,14 +9,14 @@ import java.util.Date;
 
 public class User {
     // attributes
-    private String username;
+    public String username;
     private Date joinDate;
-    private String userFirstName;
-    private String userLastName;
+    public String userFirstName;
+    public String userLastName;
     private Meal[] meals;
     private Fight[] fights;
     private int level;
-    private Image profilePicture;
+    public String imageURL;
 
     private Fight[] currentFights;
 
@@ -42,11 +42,11 @@ public class User {
 
     private int totalScoreForWeek;
 
-    public User(String username, String firstname, String lastname, Image picture, int currentLevel) {
+    public User(String username, String firstname, String lastname, String picture, int currentLevel) {
         this.username = username;
         this.userFirstName = firstname;
         this.userLastName = lastname;
-        this.profilePicture = picture;
+        this.imageURL = picture;
         this.level = currentLevel;
     }
 }

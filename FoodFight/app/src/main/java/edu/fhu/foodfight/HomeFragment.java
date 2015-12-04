@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.Date;
+
+import edu.fhu.foodfight.dummy.DummyContent;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,6 +50,8 @@ public class HomeFragment extends Fragment {
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
+
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -72,7 +77,7 @@ public class HomeFragment extends Fragment {
 
         View homeView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Fight[] fights = {new Fight(new Date(), new Date() , "Jesse", "Avery", 1),
+        /*final Fight[] fights = {new Fight(new Date(), new Date() , "Jesse", "Avery", 1),
                 new Fight(new Date(), new Date() , "Jesse", "Seth", 1),
                 new Fight(new Date(), new Date() , "Jesse", "Tyler", 1),
                 new Fight(new Date(), new Date() , "Jesse", "Eli", 2),
@@ -82,6 +87,16 @@ public class HomeFragment extends Fragment {
                 new Fight(new Date(), new Date() , "Jesse", "Wesley", 2)
         };
 
+        final Fight[] finishedFights = {new Fight(new Date(), new Date() , "Jesse", "Avery", 1),
+                new Fight(new Date(), new Date() , "Jesse", "Seth", 1),
+                new Fight(new Date(), new Date() , "Jesse", "Tyler", 1),
+                new Fight(new Date(), new Date() , "Jesse", "Eli", 2),
+                new Fight(new Date(), new Date() , "Jesse", "Kenan", 1),
+                new Fight(new Date(), new Date() , "Jesse", "Audrey", 2),
+                new Fight(new Date(), new Date() , "Jesse", "Jason", 1),
+                new Fight(new Date(), new Date() , "Jesse", "Wesley", 2)
+        };*/
+
         FloatingActionButton fab = (FloatingActionButton) homeView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,13 +105,40 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        FightsAdapter fightAdapter = new FightsAdapter(this.getActivity(), fights);
+        FightsAdapter fightAdapter = new FightsAdapter(this.getActivity(), DummyContent.Fights );
+        FightsAdapter finishedFightsAdapter = new FightsAdapter(this.getActivity(), DummyContent.Fights);
         ListView fightListView = (ListView) homeView.findViewById(R.id.currentfights);
-        ListView finishedFightsLIstView = (ListView) homeView.findViewById(R.id.finishedFights);
+        ListView finishedFightsListView = (ListView) homeView.findViewById(R.id.finishedFights);
         fightListView.setAdapter(fightAdapter);
-        finishedFightsLIstView.setAdapter(fightAdapter);
+        finishedFightsListView.setAdapter(fightAdapter);
 
         fightAdapter.notifyDataSetChanged();
+
+        fightListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1,
+                                    int position, long arg3) {
+                // TODO Auto-generated method stub
+
+                viewFight(DummyContent.Fights.get(position));
+
+
+            }
+        });
+
+        finishedFightsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1,
+                                    int position, long arg3) {
+                // TODO Auto-generated method stub
+
+                viewFight(DummyContent.Fights.get(position));
+
+
+            }
+        });
 
         return homeView;
     }
@@ -145,8 +187,21 @@ public class HomeFragment extends Fragment {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
 
         fragment = new FightDetailsFragment();
-        ft.replace(R.id.content_frame, fragment);
-        ft.commit();
+        ft.add(R.id.content_frame, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void viewFight(Fight fightItem) {
+        Fragment fragment;
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+        fragment = FightDetailsFragment.newInstance(fightItem);
+
+
+        ft.replace(R.id.content_frame, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
 }

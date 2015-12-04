@@ -11,11 +11,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.List;
 
 
 public class FightsAdapter extends ArrayAdapter<Fight> {
 
-    FightsAdapter(Context context, Fight[] fights) {
+    FightsAdapter(Context context, List<Fight> fights) {
         super(context, R.layout.custom_fight_row, fights);
     }
 

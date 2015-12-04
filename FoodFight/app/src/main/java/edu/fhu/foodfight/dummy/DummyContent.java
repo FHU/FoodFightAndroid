@@ -1,9 +1,16 @@
 package edu.fhu.foodfight.dummy;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import android.media.Image;
+
+import edu.fhu.foodfight.Fight;
+import edu.fhu.foodfight.Meal;
+import edu.fhu.foodfight.MealType;
+import edu.fhu.foodfight.User;
 
 /**
  * Helper class for providing sample content for user interfaces created by
@@ -13,27 +20,89 @@ import java.util.Map;
  */
 public class DummyContent {
 
-    /**
-     * An array of sample (dummy) items.
-     */
-    public static List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static User CurrentUser;
 
     /**
-     * A map of sample (dummy) items, by ID.
+     * An array items
      */
-    public static Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+    public static List<User> Users = new ArrayList<User>();
+    public static List<Fight> Fights = new ArrayList<Fight>();
+    public static List<Meal> Meals = new ArrayList<Meal>();
+
+
+    /**
+     * A map of items, by ID.
+     */
+    public static Map<String, User> UsersMap = new HashMap<String, User>();
+    public static Map<String, Fight> FightsMap = new HashMap<String, Fight>();
+    public static Map<String, Meal> MealsMap = new HashMap<String, Meal>();
 
     static {
         // Add 3 sample items.
-        addItem(new DummyItem("1", "Item 1"));
-        addItem(new DummyItem("2", "Item 2"));
-        addItem(new DummyItem("3", "Item 3"));
+        addUser(new User("Harry", "Harry", "Potter", "http://cdn.playbuzz.com/cdn/05612ae3-0911-4e51-8ff5-0c5b1b580cbf/5c212545-2724-4231-9805-82e931028689.jpg", 40));
+        addUser(new User("Hermione", "Hermione", "Granger", "https://flavorwire.files.wordpress.com/2015/09/harry-potter-top-10-hermione-granger-moments-hermione-granger-358045.jpg", 30));
+        addUser(new User("Ron", "Ron", "Weasley", "http://cdn.collider.com/wp-content/uploads/2015/07/ron-weasley.jpg", 32));
+        addUser(new User("Snape", "Severus", "Snape", "http://media1.s-nbcnews.com/i/newscms/2015_24/620026/severus-snape-alan-rickman-hary-potter-2-today-tease-150608_a331468573cda45156990ab430cfadcb.jpg", 7));
+
+
+        Meal meal1 = new Meal("1", 87, MealType.BREAKFAST, new Date());
+        Meal meal2 = new Meal("2", 56, MealType.LUNCH, new Date());
+        Meal meal3 = new Meal("3", 42, MealType.DINNER, new Date());
+        Meal meal4 = new Meal("4", 23, MealType.BREAKFAST, new Date(2015, 2, 24));
+        Meal meal5 = new Meal("5", 1, MealType.LUNCH, new Date(2015, 2, 24));
+        Meal meal6 = new Meal("6", 99, MealType.DINNER, new Date(2015, 2, 24));
+
+        List<Meal> meals1 = new ArrayList<Meal>();
+        meals1.add(meal1);
+        meals1.add(meal2);
+        meals1.add(meal3);
+
+        List<Meal> meals2 = new ArrayList<Meal>();
+        meals2.add(meal4);
+        meals2.add(meal5);
+        meals2.add(meal6);
+
+        addMeal(meal1);
+        addMeal(meal2);
+        addMeal(meal3);
+        addMeal(meal4);
+        addMeal(meal5);
+        addMeal(meal6);
+
+        Fight harryRon = new Fight(new Date(), new Date(), "Harry", "Ron", "harryRon");
+        harryRon.userMeals.addAll(meals1);
+        harryRon.opponentMeals.addAll(meals2);
+        addFight(harryRon);
+
+        Fight harryHermione = new Fight(new Date(), new Date(), "Harry", "Hermione", "harryHermione");
+        harryRon.userMeals.addAll(meals1);
+        harryRon.opponentMeals.addAll(meals2);
+        addFight(harryHermione);
+
+        Fight harrySnape =new Fight(new Date(), new Date(), "Harry", "Snape" ,"harrySnape" );
+        harrySnape.userMeals.addAll(meals1);
+        harrySnape.opponentMeals.addAll(meals2);
+        addFight(harrySnape);
+
+        //set current user to first user in array
+        CurrentUser = Users.get(0);
     }
 
-    private static void addItem(DummyItem item) {
-        ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
+    private static void addUser(User user) {
+        Users.add(user);
+        UsersMap.put(user.username, user);
     }
+
+    private static void addFight(Fight fight) {
+        Fights.add(fight);
+        FightsMap.put(fight.userId, fight);
+    }
+
+    private static void addMeal(Meal meal) {
+        Meals.add(meal);
+        MealsMap.put(meal.id, meal);
+    }
+
 
     /**
      * A dummy item representing a piece of content.

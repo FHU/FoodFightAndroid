@@ -11,14 +11,44 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
+import java.util.Date;
+
+import edu.fhu.foodfight.dummy.DummyContent;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FightDetailsFragment extends Fragment {
 
+    private Fight mFight;
+    private static final String ARG_FIGHT = "FIGHT";
+
+
     public FightDetailsFragment() {
         // Required empty public constructor
+    }
+
+    public static FightDetailsFragment newInstance(Fight fight) {
+        FightDetailsFragment fragment = new FightDetailsFragment();
+        Bundle args = new Bundle();
+        args.putString( ARG_FIGHT, fight.id );
+
+        fragment.setArguments(args);
+
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            String fightKey = getArguments().getString(ARG_FIGHT);
+
+            mFight = DummyContent.FightsMap.get(fightKey);
+            //Load fight info to view
+        }
+
     }
 
     @Override
@@ -36,7 +66,7 @@ public class FightDetailsFragment extends Fragment {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
 
                 fragment = new ProfileFragment();
-                ft.replace(R.id.content_frame, fragment);
+                ft.add(R.id.content_frame, fragment);
                 ft.commit();
             }
 
@@ -66,8 +96,9 @@ public class FightDetailsFragment extends Fragment {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
 
                 fragment = new MealDetailsFragment();
-                ft.replace(R.id.content_frame, fragment);
-                ft.commit();
+                ft.add(R.id.content_frame, fragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
@@ -79,8 +110,9 @@ public class FightDetailsFragment extends Fragment {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
 
                 fragment = new MealDetailsFragment();
-                ft.replace(R.id.content_frame, fragment);
-                ft.commit();
+                ft.add(R.id.content_frame, fragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
@@ -92,8 +124,9 @@ public class FightDetailsFragment extends Fragment {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
 
                 fragment = new MealDetailsFragment();
-                ft.replace(R.id.content_frame, fragment);
-                ft.commit();
+                ft.add(R.id.content_frame, fragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
@@ -105,8 +138,9 @@ public class FightDetailsFragment extends Fragment {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
 
                 fragment = new MealDetailsFragment();
-                ft.replace(R.id.content_frame, fragment);
-                ft.commit();
+                ft.add(R.id.content_frame, fragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
@@ -118,8 +152,9 @@ public class FightDetailsFragment extends Fragment {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
 
                 fragment = new MealDetailsFragment();
-                ft.replace(R.id.content_frame, fragment);
-                ft.commit();
+                ft.add(R.id.content_frame, fragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
@@ -131,8 +166,9 @@ public class FightDetailsFragment extends Fragment {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
 
                 fragment = new MealDetailsFragment();
-                ft.replace(R.id.content_frame, fragment);
-                ft.commit();
+                ft.add(R.id.content_frame, fragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
