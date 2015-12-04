@@ -45,12 +45,12 @@ public class DummyContent {
         addUser(new User("Snape", "Severus", "Snape", "http://media1.s-nbcnews.com/i/newscms/2015_24/620026/severus-snape-alan-rickman-hary-potter-2-today-tease-150608_a331468573cda45156990ab430cfadcb.jpg", 7));
 
 
-        Meal meal1 = new Meal("1", 87, MealType.BREAKFAST, new Date());
-        Meal meal2 = new Meal("2", 56, MealType.LUNCH, new Date());
-        Meal meal3 = new Meal("3", 42, MealType.DINNER, new Date());
-        Meal meal4 = new Meal("4", 23, MealType.BREAKFAST, new Date(2015, 2, 24));
-        Meal meal5 = new Meal("5", 1, MealType.LUNCH, new Date(2015, 2, 24));
-        Meal meal6 = new Meal("6", 99, MealType.DINNER, new Date(2015, 2, 24));
+        Meal meal1 = new Meal("1", 87, MealType.BREAKFAST, new Date(), "https://www.parentmap.com/c/51b0d6be/images/food/breakfast_for_dinner.jpg");
+        Meal meal2 = new Meal("2", 56, MealType.LUNCH, new Date(), "http://newyork.seriouseats.com/images/20120221-baobq-specials-1.jpg");
+        Meal meal3 = new Meal("3", 42, MealType.DINNER, new Date(), "http://www.ziadiner.com/wp-content/uploads/Restaurant-Santa-Fe-Zia-Diner-Lunch-Dinner-Menu-Dishes-Zia-Diner-Event-Calendar-a.jpg");
+        Meal meal4 = new Meal("4", 23, MealType.BREAKFAST, new Date(2015, 2, 24), "http://i.huffpost.com/gen/1062480/images/o-QUICK-BREAKFAST-RECIPES-facebook.jpg");
+        Meal meal5 = new Meal("5", 1, MealType.LUNCH, new Date(2015, 2, 24), "http://honestcooking.com/wp-content/uploads/2011/05/Schoollunch.jpg");
+        Meal meal6 = new Meal("6", 99, MealType.DINNER, new Date(2015, 2, 24), "http://allears.net/dining/images/menu_item_image_68.jpg");
 
         List<Meal> meals1 = new ArrayList<Meal>();
         meals1.add(meal1);

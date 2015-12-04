@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import android.graphics.*;
+import java.util.*;
 
 import edu.fhu.foodfight.dummy.DummyContent;
 
@@ -83,12 +84,22 @@ public class ProfileFragment extends Fragment {
         String lastName = user.userLastName;
         String imageURL = user.imageURL;
 
+        List<Meal> bestMeals = DummyContent.Meals;
+
         View myInflatedView = inflater.inflate(R.layout.fragment_profile, container,false);
 
         TextView t = (TextView) myInflatedView.findViewById(R.id.profileName);
         ImageView image = (ImageView) myInflatedView.findViewById(R.id.profileImage);
+        ImageView bestMealBreakfastImage = (ImageView) myInflatedView.findViewById(R.id.bestMealBreakfast);
+        ImageView bestMealLunchImage = (ImageView) myInflatedView.findViewById(R.id.bestMealLunch);
+        ImageView bestMealDinnerImage = (ImageView) myInflatedView.findViewById(R.id.bestMealDinner);
+
 
         new ImageDownloader(image).execute(imageURL);
+        new ImageDownloader(bestMealBreakfastImage).execute(bestMeals.get(0).imageURL);
+        new ImageDownloader(bestMealLunchImage).execute(bestMeals.get(1).imageURL);
+        new ImageDownloader(bestMealDinnerImage).execute(bestMeals.get(2).imageURL);
+
         t.setText(firstName + " " + lastName);
         return myInflatedView;
     }
