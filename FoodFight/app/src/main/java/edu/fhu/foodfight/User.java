@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class User {
     // attributes
-    private String username;
+    public String username;
     private Date joinDate;
     private String userFirstName;
     private String userLastName;
