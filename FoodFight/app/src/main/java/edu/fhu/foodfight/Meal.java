@@ -7,7 +7,7 @@ public class Meal {
     // attributes
     public String id;
 
-    private Image image;
+    public String imageURL;
     private int score;
     private String description;
     private MealType mealType;

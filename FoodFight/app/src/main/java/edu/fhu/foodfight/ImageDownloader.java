@@ -1,4 +1,4 @@
-/**
+package edu.fhu.foodfight; /**
  * Created by averycupples on 12/4/15.
  */
 import android.graphics.*;

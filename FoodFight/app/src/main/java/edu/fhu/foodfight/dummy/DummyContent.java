@@ -39,10 +39,10 @@ public class DummyContent {
 
     static {
         // Add 3 sample items.
-        addUser(new User("Harry", "Harry", "Potter", Image(), 40));
-        addUser(new User("Hermione", "Hermione", "Granger", null, 30));
-        addUser(new User("Ron", "Ron", "Weasley", null, 32));
-        addUser(new User("Snape", "Severus", "Snape", null, 7));
+        addUser(new User("Harry", "Harry", "Potter", "http://cdn.playbuzz.com/cdn/05612ae3-0911-4e51-8ff5-0c5b1b580cbf/5c212545-2724-4231-9805-82e931028689.jpg", 40));
+        addUser(new User("Hermione", "Hermione", "Granger", "https://flavorwire.files.wordpress.com/2015/09/harry-potter-top-10-hermione-granger-moments-hermione-granger-358045.jpg", 30));
+        addUser(new User("Ron", "Ron", "Weasley", "http://cdn.collider.com/wp-content/uploads/2015/07/ron-weasley.jpg", 32));
+        addUser(new User("Snape", "Severus", "Snape", "http://media1.s-nbcnews.com/i/newscms/2015_24/620026/severus-snape-alan-rickman-hary-potter-2-today-tease-150608_a331468573cda45156990ab430cfadcb.jpg", 7));
 
 
         Meal meal1 = new Meal("1", 87, MealType.BREAKFAST, new Date());

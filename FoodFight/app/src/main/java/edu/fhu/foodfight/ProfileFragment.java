@@ -24,7 +24,7 @@ import edu.fhu.foodfight.dummy.DummyContent;
 public class ProfileFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM1 = "currentUser";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
@@ -81,10 +81,14 @@ public class ProfileFragment extends Fragment {
         String userName = user.username;
         String firstName = user.userFirstName;
         String lastName = user.userLastName;
+        String imageURL = user.imageURL;
 
         View myInflatedView = inflater.inflate(R.layout.fragment_profile, container,false);
 
         TextView t = (TextView) myInflatedView.findViewById(R.id.profileName);
+        ImageView image = (ImageView) myInflatedView.findViewById(R.id.profileImage);
+
+        new ImageDownloader(image).execute(imageURL);
         t.setText(firstName + " " + lastName);
         return myInflatedView;
     }
