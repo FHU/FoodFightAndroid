@@ -105,8 +105,8 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        FightsAdapter fightAdapter = new FightsAdapter(this.getActivity(), DummyContent.Fights.toArray()  );
-        FightsAdapter finishedFightsAdapter = new FightsAdapter(this.getActivity(), DummyContent.Fights.toArray());
+        FightsAdapter fightAdapter = new FightsAdapter(this.getActivity(), DummyContent.Fights );
+        FightsAdapter finishedFightsAdapter = new FightsAdapter(this.getActivity(), DummyContent.Fights);
         ListView fightListView = (ListView) homeView.findViewById(R.id.currentfights);
         ListView finishedFightsListView = (ListView) homeView.findViewById(R.id.finishedFights);
         fightListView.setAdapter(fightAdapter);
@@ -121,7 +121,7 @@ public class HomeFragment extends Fragment {
                                     int position, long arg3) {
                 // TODO Auto-generated method stub
 
-                viewFight(fights[position]);
+                viewFight(DummyContent.Fights.get(position));
 
 
             }
@@ -134,7 +134,7 @@ public class HomeFragment extends Fragment {
                                     int position, long arg3) {
                 // TODO Auto-generated method stub
 
-                viewFight(finishedFights[position]);
+                viewFight(DummyContent.Fights.get(position));
 
 
             }
