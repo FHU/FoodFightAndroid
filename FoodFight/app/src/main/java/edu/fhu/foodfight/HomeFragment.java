@@ -196,7 +196,7 @@ public class HomeFragment extends Fragment {
         Fragment fragment;
         FragmentTransaction ft = getFragmentManager().beginTransaction();
 
-        fragment = FightDetailsFragment.newInstance(fightItem);
+        fragment = FightDetailsFragment.newInstance(fightItem.id);
 
 
         ft.replace(R.id.content_frame, fragment)

@@ -95,7 +95,7 @@ public class DummyContent {
 
     private static void addFight(Fight fight) {
         Fights.add(fight);
-        FightsMap.put(fight.userId, fight);
+        FightsMap.put(fight.id, fight);
     }
 
     private static void addMeal(Meal meal) {

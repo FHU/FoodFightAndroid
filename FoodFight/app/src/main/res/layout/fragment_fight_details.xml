@@ -77,14 +77,14 @@
             android:layout_below="@id/breakfast_header_text_view"
             android:id="@+id/breakfast_images">
 
-            <ImageView
+            <edu.fhu.foodfight.SquareImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/plate7"
                 android:id="@+id/user_breakfast_image_view" />
 
-            <ImageView
+            <edu.fhu.foodfight.SquareImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -111,14 +111,14 @@
             android:layout_below="@id/lunch_header_text_view"
             android:id="@+id/lunch_images">
 
-            <ImageView
+            <edu.fhu.foodfight.SquareImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/plate7"
                 android:id="@+id/user_lunch_image_view" />
 
-            <ImageView
+            <edu.fhu.foodfight.SquareImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -144,14 +144,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/dinner_header_text_view">
 
-            <ImageView
+            <edu.fhu.foodfight.SquareImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/plate7"
                 android:id="@+id/user_dinner_image_view" />
 
-            <ImageView
+            <edu.fhu.foodfight.SquareImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

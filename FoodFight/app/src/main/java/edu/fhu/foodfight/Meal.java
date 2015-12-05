@@ -8,9 +8,9 @@ public class Meal {
     public String id;
 
     public String imageURL;
-    private int score;
-    private String description;
-    private MealType mealType;
+    public int score;
+    public String description;
+    public MealType mealType;
     private Date submissionDate;
 
     // methods

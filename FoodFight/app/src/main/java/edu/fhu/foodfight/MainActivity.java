@@ -19,12 +19,15 @@ import android.widget.ListView;
 
 import java.util.Date;
 
+import edu.fhu.foodfight.dummy.DummyContent;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String ARG_PARAM1 = "currentUser";
     private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_FIGHT = "FIGHT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +106,7 @@ public class MainActivity extends AppCompatActivity
             ft.commit();
 
         } else if (id == R.id.nav_history) {
-            fragment = new FightDetailsFragment();
+            fragment = new HistoryFragment();
             ft.replace(R.id.content_frame, fragment);
             ft.commit();
 
