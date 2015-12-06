@@ -122,6 +122,17 @@ public class HomeFragment extends Fragment {
 
         fightsListView.setAdapter(fightsListAdapter);
 
+        // Listview on child click listener
+        fightsListView.setOnChildClickListener(new OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                viewFight(DummyContent.Fights.get(childPosition));
+                return false;
+            }
+        });
+
         return homeView;
     }
 
