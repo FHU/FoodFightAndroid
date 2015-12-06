@@ -55,23 +55,12 @@ public class MealDetailsFragment extends Fragment {
         TextView mealType = (TextView) v.findViewById(R.id.mealTypeText);
         ImageView ImageView = (ImageView) v.findViewById(R.id.meal_image);
 
-
-<<<<<<< HEAD
-            description.setText(mMeal.description);
-=======
         if (mMeal != null) {
             new ImageDownloader(ImageView).execute(mMeal.imageURL);
->>>>>>> origin/master
-
 
             description.setText(mMeal.description);
 
-<<<<<<< HEAD
-            switch(mMeal.mealType)
-            {
-=======
             switch (mMeal.mealType) {
->>>>>>> origin/master
                 case BREAKFAST:
                     mealType.setText("BREAKFAST");
                     break;
@@ -84,17 +73,6 @@ public class MealDetailsFragment extends Fragment {
                     break;
 
             }
-<<<<<<< HEAD
-       // }
-       /* else{
-            mealType.setText("No MealType...");
-
-        }*/
-        ImageView ImageView = (ImageView)v.findViewById(R.id.meal_image);
-        if (mMeal != null) {
-            new ImageDownloader(ImageView).execute(mMeal.imageURL);
-=======
->>>>>>> origin/master
         }
 
         return v;
