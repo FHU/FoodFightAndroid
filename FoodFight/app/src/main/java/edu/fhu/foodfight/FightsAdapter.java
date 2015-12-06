@@ -24,7 +24,6 @@ public class FightsAdapter extends BaseExpandableListAdapter {
     // child data in format of header title, child title
     private HashMap<String, List<Fight>> _listDataChild;
     private static User currentUser = DummyContent.CurrentUser;
-    private static User opponent;
 
     public FightsAdapter(Context context, List<String> listDataHeader,
                                  HashMap<String, List<Fight>> listChildData) {
@@ -59,7 +58,7 @@ public class FightsAdapter extends BaseExpandableListAdapter {
         CircleImageView userProfileImageView = (CircleImageView) convertView
                 .findViewById(R.id.opponentImage);
 
-        opponent = DummyContent.UsersMap.get(childFight.opponentId);
+        User opponent = DummyContent.UsersMap.get(childFight.opponentId);
 
         new ImageDownloader(userProfileImageView).execute(opponent.imageURL);
 

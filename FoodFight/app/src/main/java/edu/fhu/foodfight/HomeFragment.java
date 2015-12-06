@@ -110,8 +110,8 @@ public class HomeFragment extends Fragment {
         fightsListView = (ExpandableListView) homeView.findViewById(R.id.fightsExpandableListView);
 
         fightSections = new ArrayList<String>();
-        fightSections.add("Current Fights");
-        fightSections.add("Finished Fights");
+        fightSections.add("Current Fights (" + DummyContent.getCurrentFights().size() + ")");
+        fightSections.add("Finished Fights (" + DummyContent.getFinishedFights().size() + ")");
 
         fightSectionChildData = new HashMap<String, List<Fight>>();
         fightSectionChildData.put(fightSections.get(0), DummyContent.getCurrentFights());
@@ -128,7 +128,8 @@ public class HomeFragment extends Fragment {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
-                viewFight(DummyContent.Fights.get(childPosition));
+                Fight fightToView = (Fight) fightsListAdapter.getChild(groupPosition, childPosition);
+                viewFight(DummyContent.FightsMap.get(fightToView.id));
                 return false;
             }
         });
