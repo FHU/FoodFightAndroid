@@ -34,7 +34,7 @@
         <LinearLayout
             android:id="@+id/profileLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_below="@id/profileName"
             android:layout_marginTop="20pt">
 
@@ -45,7 +45,7 @@
             android:background="@color/colorPrimary"
             android:layout_weight="1"
             android:text="Level 57"
-            android:textSize="12pt"
+            android:textSize="16pt"
             />
         <TextView
             android:id="@+id/pointsText"
@@ -54,7 +54,7 @@
             android:background="@color/colorPrimary"
             android:layout_weight="1"
             android:text="314 Points"
-            android:textSize="12pt"
+            android:textSize="16pt"
             android:gravity="right"
             android:textAlignment="gravity"
             />
@@ -334,7 +334,7 @@
         <TextView
         android:id="@+id/bestMealsTextView"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@color/colorPrimary"
         android:text="Best Meals"
             android:layout_marginTop="10pt"
@@ -405,7 +405,7 @@
         <TextView
             android:id="@+id/worstMealsTextView"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@color/colorPrimary"
             android:text="Worst Meals"
             android:layout_marginTop="10pt"

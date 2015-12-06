@@ -132,8 +132,8 @@ public class ProfileFragment extends Fragment {
         averageBreakfastScoreText.setText(averageBreakfastScore);
         averageLunchScoreText.setText(averageLunchScore);
         averageDinnerScoreText.setText(averageDinnerScore);
-        levelText.setText(level);
-        pointsText.setText(points);
+        levelText.setText("Level " + level);
+        pointsText.setText(points + " points");
 
         new ImageDownloader(image).execute(imageURL);
         new ImageDownloader(bestMealBreakfastImage).execute(meals.get(0).imageURL);
