@@ -23,6 +23,8 @@ public class FightsAdapter extends BaseExpandableListAdapter {
     private List<String> _listDataHeader; // header titles
     // child data in format of header title, child title
     private HashMap<String, List<Fight>> _listDataChild;
+    private static User currentUser = DummyContent.CurrentUser;
+    private static User opponent;
 
     public FightsAdapter(Context context, List<String> listDataHeader,
                                  HashMap<String, List<Fight>> listChildData) {
@@ -54,8 +56,12 @@ public class FightsAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.custom_fight_row, null);
         }
 
-        ImageView opponentImage = (ImageView) convertView.
-                findViewById(R.id.opponentImage);
+        CircleImageView userProfileImageView = (CircleImageView) convertView
+                .findViewById(R.id.opponentImage);
+
+        opponent = DummyContent.UsersMap.get(childFight.opponentId);
+
+        new ImageDownloader(userProfileImageView).execute(opponent.imageURL);
 
         TextView opponentName = (TextView) convertView
                 .findViewById(R.id.opponentName);
@@ -70,7 +76,7 @@ public class FightsAdapter extends BaseExpandableListAdapter {
                 .findViewById(R.id.timeRemaining);
 
         opponentName.setText(childFight.opponentId);
-        score.setText(childFight.score);
+        score.setText(childFight.userScore + " - " + childFight.opponentScore);
         numberOfMeals.setText(childFight.numberOfMeals + "/3 meals");
         timeRemaining.setText(childFight.str_timeRemaining());
 

@@ -69,17 +69,17 @@ public class DummyContent {
         addMeal(meal5);
         addMeal(meal6);
 
-        Fight harryRon = new Fight(new Date(), new Date(), "Harry", "Ron", "harryRon");
+        Fight harryRon = new Fight(new Date(), new Date(), "Harry", "Ron", "harryRon", 73, 48, false);
         harryRon.userMeals.addAll(meals1);
         harryRon.opponentMeals.addAll(meals2);
         addFight(harryRon);
 
-        Fight harryHermione = new Fight(new Date(), new Date(), "Harry", "Hermione", "harryHermione");
+        Fight harryHermione = new Fight(new Date(), new Date(), "Harry", "Hermione", "harryHermione", 146, 124, true );
         harryRon.userMeals.addAll(meals1);
         harryRon.opponentMeals.addAll(meals2);
         addFight(harryHermione);
 
-        Fight harrySnape =new Fight(new Date(), new Date(), "Harry", "Snape" ,"harrySnape" );
+        Fight harrySnape =new Fight(new Date(), new Date(), "Harry", "Snape" ,"harrySnape", 88, 262, true );
         harrySnape.userMeals.addAll(meals1);
         harrySnape.opponentMeals.addAll(meals2);
         addFight(harrySnape);
@@ -104,11 +104,25 @@ public class DummyContent {
     }
 
     public static List<Fight> getCurrentFights() {
-        return Fights;
+        List<Fight> currentFights = new ArrayList<Fight>();
+        for (Fight fight : Fights) {
+            if (fight.isOver == false) {
+                currentFights.add(fight);
+            }
+        }
+
+        return currentFights;
     }
 
     public static List<Fight> getFinishedFights() {
-        return Fights;
+        List<Fight> finishedFights = new ArrayList<Fight>();
+        for (Fight fight : Fights) {
+            if (fight.isOver == true) {
+                finishedFights.add(fight);
+            }
+        }
+
+        return finishedFights;
     }
 
     /**
