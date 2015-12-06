@@ -1,33 +1,29 @@
 package edu.fhu.foodfight;
 
 /**
- * Created by jesse on 11/8/15.
+ * Created by jesse on 12/5/15.
  */
-
+import java.util.HashMap;
+import java.util.List;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.HashMap;
-import java.util.List;
-import edu.fhu.foodfight.dummy.DummyContent;
+public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
-public class FightsAdapter extends BaseExpandableListAdapter {
     private Context _context;
     private List<String> _listDataHeader; // header titles
     // child data in format of header title, child title
-    private HashMap<String, List<Fight>> _listDataChild;
+    private HashMap<String, List<String>> _listDataChild;
 
-    public FightsAdapter(Context context, List<String> listDataHeader,
-                                 HashMap<String, List<Fight>> listChildData) {
+    public ExpandableListAdapter(Context context, List<String> listDataHeader,
+                                 HashMap<String, List<String>> listChildData) {
         this._context = context;
-        this._listDataHeader = listDataHeader; /* name of section */
+        this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
     }
 
@@ -46,7 +42,7 @@ public class FightsAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
-        final Fight childFight = (Fight) getChild(groupPosition, childPosition);
+        final String childText = (String) getChild(groupPosition, childPosition);
 
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
@@ -54,26 +50,10 @@ public class FightsAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.custom_fight_row, null);
         }
 
-        ImageView opponentImage = (ImageView) convertView.
-                findViewById(R.id.opponentImage);
-
-        TextView opponentName = (TextView) convertView
+        TextView txtListChild = (TextView) convertView
                 .findViewById(R.id.opponentName);
 
-        TextView score = (TextView) convertView
-                .findViewById(R.id.score);
-
-        TextView numberOfMeals = (TextView) convertView
-                .findViewById(R.id.mealCount);
-
-        TextView timeRemaining = (TextView) convertView
-                .findViewById(R.id.timeRemaining);
-
-        opponentName.setText(childFight.opponentId);
-        score.setText(childFight.score);
-        numberOfMeals.setText(childFight.numberOfMeals + "/3 meals");
-        timeRemaining.setText(childFight.str_timeRemaining());
-
+        txtListChild.setText(childText);
         return convertView;
     }
 

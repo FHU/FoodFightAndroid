@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
 
     <ImageView
         android:layout_width="60dp"
@@ -21,7 +21,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Opponent Name"
             android:id="@+id/opponentName"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +30,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Score"
             android:id="@+id/score"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"/>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -44,7 +46,8 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="1/3 meals"
                 android:id="@+id/mealCount"
-                android:layout_weight="0.14" />
+                android:layout_weight="0.14"
+                android:textColor="#000000"/>
 
             <FrameLayout
                 android:layout_width="wrap_content"
@@ -57,7 +60,8 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="19 hours left"
                 android:id="@+id/timeRemaining"
-                android:layout_weight="0.30" />
+                android:layout_weight="0.30"
+                android:textColor="#000000"/>
         </LinearLayout>
 
     </LinearLayout>

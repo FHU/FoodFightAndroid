@@ -21,9 +21,10 @@ import edu.fhu.foodfight.dummy.DummyContent;
 
 public class MealDetailsFragment extends Fragment {
 
-//    private OnFragmentInteractionListener mListener;
+    //    private OnFragmentInteractionListener mListener;
     private Meal mMeal;
     private static final String ARG_MEAL = "currentMeal";
+
     public MealDetailsFragment() {
         // Required empty public constructor
     }
@@ -31,7 +32,7 @@ public class MealDetailsFragment extends Fragment {
     public static MealDetailsFragment newInstance(String mealKey) {
         MealDetailsFragment fragment = new MealDetailsFragment();
         Bundle args = new Bundle();
-        args.putString( ARG_MEAL, mealKey );
+        args.putString(ARG_MEAL, mealKey);
         fragment.setArguments(args);
         return fragment;
     }
@@ -44,6 +45,7 @@ public class MealDetailsFragment extends Fragment {
         }
 
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,22 +58,14 @@ public class MealDetailsFragment extends Fragment {
         ImageView ImageView = (ImageView) v.findViewById(R.id.meal_image);
 
 
-<<<<<<< HEAD
-            description.setText(mMeal.description);
-=======
+        description.setText(mMeal.description);
         if (mMeal != null) {
             new ImageDownloader(ImageView).execute(mMeal.imageURL);
->>>>>>> origin/master
 
 
             description.setText(mMeal.description);
 
-<<<<<<< HEAD
-            switch(mMeal.mealType)
-            {
-=======
             switch (mMeal.mealType) {
->>>>>>> origin/master
                 case BREAKFAST:
                     mealType.setText("BREAKFAST");
                     break;
@@ -84,23 +78,22 @@ public class MealDetailsFragment extends Fragment {
                     break;
 
             }
-<<<<<<< HEAD
-       // }
+            // }
        /* else{
             mealType.setText("No MealType...");
 
         }*/
-        ImageView ImageView = (ImageView)v.findViewById(R.id.meal_image);
-        if (mMeal != null) {
-            new ImageDownloader(ImageView).execute(mMeal.imageURL);
-=======
->>>>>>> origin/master
+            ImageView imageView = (ImageView) v.findViewById(R.id.meal_image);
+            if (mMeal != null) {
+                new ImageDownloader(imageView).execute(mMeal.imageURL);
+
+            }
+
+
         }
 
         return v;
-
     }
-
 
 //    // TODO: Rename method, update argument and hook method into UI event
 //    public void onButtonPressed(Uri uri) {

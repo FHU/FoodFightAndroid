@@ -103,6 +103,13 @@ public class DummyContent {
         MealsMap.put(meal.id, meal);
     }
 
+    public static List<Fight> getCurrentFights() {
+        return Fights;
+    }
+
+    public static List<Fight> getFinishedFights() {
+        return Fights;
+    }
 
     /**
      * A dummy item representing a piece of content.

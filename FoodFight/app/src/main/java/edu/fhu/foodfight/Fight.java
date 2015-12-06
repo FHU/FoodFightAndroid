@@ -14,6 +14,8 @@ public class Fight  {
 
     public String id;
 
+    public String score;
+
     public String userId;
     public String opponentId = "";
 
