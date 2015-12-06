@@ -15,7 +15,8 @@ public class User {
     public String userLastName;
     private Meal[] meals;
     private Fight[] fights;
-    private int level;
+    public int level;
+    public int points;
     public String imageURL;
 
     private Fight[] currentFights;
@@ -26,15 +27,21 @@ public class User {
 
     private Meal[] worstMeals;
 
-    private int numberOfFinishedFights;
+    public int numberOfFinishedFights;
 
-    private int numberOfWins;
+    public int numberOfWins;
 
     private int numberOfLosses;
 
     private int numberOfTies;
 
-    private int averageScoreForMealType;
+    public int averageScore;
+
+    public int averageScoreForBreakfast;
+
+    public int averageScoreForLunch;
+
+    public int averageScoreForDinner;
 
     private int totalScore;
 
@@ -42,11 +49,19 @@ public class User {
 
     private int totalScoreForWeek;
 
-    public User(String username, String firstname, String lastname, String picture, int currentLevel) {
+    public User(String username, String firstname, String lastname, String picture, int currentLevel, int finishedFights, int wins, int averageScore, int averageScoreForBreakfast, int averageScoreForLunch, int averageScoreForDinner, int level, int points) {
         this.username = username;
         this.userFirstName = firstname;
         this.userLastName = lastname;
         this.imageURL = picture;
         this.level = currentLevel;
+        this.numberOfFinishedFights = finishedFights;
+        this.numberOfWins = wins;
+        this.averageScore = averageScore;
+        this.averageScoreForBreakfast = averageScoreForBreakfast;
+        this.averageScoreForLunch = averageScoreForLunch;
+        this.averageScoreForDinner = averageScoreForDinner;
+        this.level = level;
+        this.points = points;
     }
 }

@@ -1,6 +1,7 @@
 package edu.fhu.foodfight;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -9,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import android.graphics.*;
+import java.util.*;
+import android.app.FragmentTransaction;
+import android.app.Fragment;
+
 
 import edu.fhu.foodfight.dummy.DummyContent;
 
@@ -25,13 +30,14 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "currentUser";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM2 = "currentMeal";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private User user;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -78,18 +84,148 @@ public class ProfileFragment extends Fragment {
             user = DummyContent.UsersMap.get(mParam1);
         }
 
+
+        final Fragment fragment = new MealDetailsFragment();
+        final FragmentTransaction ft = getFragmentManager().beginTransaction();
+
         String userName = user.username;
         String firstName = user.userFirstName;
         String lastName = user.userLastName;
         String imageURL = user.imageURL;
+        String gamesPlayed = Integer.toString(user.numberOfFinishedFights);
+        String wins = Integer.toString(user.numberOfWins);
+        String averageScore = Integer.toString(user.averageScore);
+        String averageBreakfastScore = Integer.toString(user.averageScoreForBreakfast);
+        String averageLunchScore = Integer.toString(user.averageScoreForLunch);
+        String averageDinnerScore = Integer.toString(user.averageScoreForDinner);
+        String level = Integer.toString(user.level);
+        String points = Integer.toString(user.points);
+
+        List<Meal> meals = DummyContent.Meals;
 
         View myInflatedView = inflater.inflate(R.layout.fragment_profile, container,false);
 
-        TextView t = (TextView) myInflatedView.findViewById(R.id.profileName);
+        TextView name = (TextView) myInflatedView.findViewById(R.id.profileName);
         ImageView image = (ImageView) myInflatedView.findViewById(R.id.profileImage);
+        ImageView bestMealBreakfastImage = (ImageView) myInflatedView.findViewById(R.id.bestMealBreakfast);
+        ImageView bestMealLunchImage = (ImageView) myInflatedView.findViewById(R.id.bestMealLunch);
+        ImageView bestMealDinnerImage = (ImageView) myInflatedView.findViewById(R.id.bestMealDinner);
+
+        ImageView worstMealBreakfastImage = (ImageView) myInflatedView.findViewById(R.id.worstMealBreakfast);
+        ImageView worstMealLunchImage = (ImageView) myInflatedView.findViewById(R.id.worstMealLunch);
+        ImageView worstMealDinnerImage = (ImageView) myInflatedView.findViewById(R.id.worstMealDinner);
+
+
+        TextView gamesPlayedText = (TextView) myInflatedView.findViewById(R.id.gamesPlayedText);
+        TextView winsText = (TextView) myInflatedView.findViewById(R.id.winsText);
+        TextView averageScoreText = (TextView) myInflatedView.findViewById(R.id.averageScoreText);
+        TextView averageBreakfastScoreText = (TextView) myInflatedView.findViewById(R.id.averageBreakfastScoreText);
+        TextView averageLunchScoreText = (TextView) myInflatedView.findViewById(R.id.averageLunchScoreText);
+        TextView averageDinnerScoreText = (TextView) myInflatedView.findViewById(R.id.averageDinnerScoreText);
+        TextView levelText = (TextView) myInflatedView.findViewById(R.id.levelText);
+        TextView pointsText = (TextView) myInflatedView.findViewById(R.id.pointsText);
+
+
+        gamesPlayedText.setText(gamesPlayed);
+        winsText.setText(wins);
+        averageScoreText.setText(averageScore);
+        averageBreakfastScoreText.setText(averageBreakfastScore);
+        averageLunchScoreText.setText(averageLunchScore);
+        averageDinnerScoreText.setText(averageDinnerScore);
+        levelText.setText("Level " + level);
+        pointsText.setText(points + " points");
 
         new ImageDownloader(image).execute(imageURL);
-        t.setText(firstName + " " + lastName);
+        new ImageDownloader(bestMealBreakfastImage).execute(meals.get(0).imageURL);
+        new ImageDownloader(bestMealLunchImage).execute(meals.get(1).imageURL);
+        new ImageDownloader(bestMealDinnerImage).execute(meals.get(2).imageURL);
+
+        new ImageDownloader(worstMealBreakfastImage).execute(meals.get(3).imageURL);
+        new ImageDownloader(worstMealLunchImage).execute(meals.get(4).imageURL);
+        new ImageDownloader(worstMealDinnerImage).execute(meals.get(5).imageURL);
+
+        name.setText(firstName + " " + lastName);
+
+        bestMealBreakfastImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ft.replace(R.id.content_frame, fragment);
+
+                Bundle args = new Bundle();
+                args.putString(ARG_PARAM2, "1");
+                fragment.setArguments(args);
+
+                ft.commit();
+
+            }
+        });
+
+        bestMealLunchImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ft.replace(R.id.content_frame, fragment);
+
+                Bundle args = new Bundle();
+                args.putString(ARG_PARAM2, "2");
+                fragment.setArguments(args);
+
+                ft.commit();
+            }
+        });
+
+        bestMealDinnerImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ft.replace(R.id.content_frame, fragment);
+
+                Bundle args = new Bundle();
+                args.putString(ARG_PARAM2, "3");
+                fragment.setArguments(args);
+
+                ft.commit();
+            }
+        });
+
+        worstMealBreakfastImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ft.replace(R.id.content_frame, fragment);
+
+                Bundle args = new Bundle();
+                args.putString(ARG_PARAM2, "4");
+                fragment.setArguments(args);
+
+                ft.commit();
+            }
+        });
+
+        worstMealLunchImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ft.replace(R.id.content_frame, fragment);
+
+                Bundle args = new Bundle();
+                args.putString(ARG_PARAM2, "5");
+                fragment.setArguments(args);
+
+                ft.commit();
+            }
+        });
+
+        worstMealDinnerImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ft.replace(R.id.content_frame, fragment);
+
+                Bundle args = new Bundle();
+                args.putString(ARG_PARAM2, "6");
+                fragment.setArguments(args);
+
+                ft.commit();
+            }
+        });
+
         return myInflatedView;
     }
 
