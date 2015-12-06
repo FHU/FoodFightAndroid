@@ -15,11 +15,12 @@ public class Meal {
 
     // methods
 
-    public Meal(String id, int score, MealType mealType, Date submissionDate, String url) {
+    public Meal(String id, int score, MealType mealType, Date submissionDate, String url, String description) {
         this.id = id;
         this.score = score;
         this.mealType = mealType;
         this.submissionDate = submissionDate;
         this.imageURL = url;
+        this.description = description;
     }
 }
