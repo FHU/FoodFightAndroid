@@ -77,19 +77,59 @@
             android:layout_below="@id/breakfast_header_text_view"
             android:id="@+id/breakfast_images">
 
-            <edu.fhu.foodfight.SquareImageView
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"
-                android:id="@+id/user_breakfast_image_view" />
+                android:layout_weight="1">
 
-            <edu.fhu.foodfight.SquareImageView
+                <edu.fhu.foodfight.SquareImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/plate7"
+                    android:id="@+id/user_breakfast_image_view" />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginLeft="-10dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="15pt"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:id="@+id/user_breakfast_score"/>
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"
-                android:id="@+id/opponent_breakfast_image_view" />
+                android:layout_weight="1">
+
+                <edu.fhu.foodfight.SquareImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/plate7"
+                    android:id="@+id/opponent_breakfast_image_view" />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-10dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="15pt"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:id="@+id/opponent_breakfast_score"/>
+            </RelativeLayout>
+
 
         </LinearLayout>
 
@@ -111,19 +151,60 @@
             android:layout_below="@id/lunch_header_text_view"
             android:id="@+id/lunch_images">
 
-            <edu.fhu.foodfight.SquareImageView
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"
-                android:id="@+id/user_lunch_image_view" />
+                android:layout_weight="1">
 
-            <edu.fhu.foodfight.SquareImageView
+                <edu.fhu.foodfight.SquareImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/plate7"
+                    android:id="@+id/user_lunch_image_view" />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginLeft="-10dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="15pt"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:id="@+id/user_lunch_score"/>
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"
-                android:id="@+id/opponent_lunch_image_view" />
+                android:layout_weight="1">
+
+                <edu.fhu.foodfight.SquareImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/plate7"
+                    android:id="@+id/opponent_lunch_image_view" />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-10dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="15pt"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:id="@+id/opponent_lunch_score"/>
+            </RelativeLayout>
+
+
 
         </LinearLayout>
 
@@ -144,19 +225,58 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/dinner_header_text_view">
 
-            <edu.fhu.foodfight.SquareImageView
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"
-                android:id="@+id/user_dinner_image_view" />
+                android:layout_weight="1">
 
-            <edu.fhu.foodfight.SquareImageView
+                <edu.fhu.foodfight.SquareImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/plate7"
+                    android:id="@+id/user_dinner_image_view" />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginLeft="-10dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="15pt"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:id="@+id/user_dinner_score"/>
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"
-                android:id="@+id/opponent_dinner_image_view" />
+                android:layout_weight="1">
+
+                <edu.fhu.foodfight.SquareImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/plate7"
+                    android:id="@+id/opponent_dinner_image_view" />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-10dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="15pt"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:id="@+id/opponent_dinner_score"/>
+            </RelativeLayout>
 
         </LinearLayout>
 
