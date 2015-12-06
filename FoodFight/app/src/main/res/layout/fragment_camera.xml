@@ -1,13 +1,16 @@
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context="edu.fhu.foodfight.CameraFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <RelativeLayout
+
+
+     <RelativeLayout
         android:id="@+id/cameraRelativeLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
         android:background="@drawable/rectangle_without_circle"
         android:layout_margin="30dp"
         android:layout_gravity="top"
@@ -15,7 +18,8 @@
         android:layout_marginRight="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="0dp"
-        android:adjustViewBounds="true">
+        android:adjustViewBounds="true"
+        android:scaleType="fitStart">
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -67,14 +71,14 @@
             android:layout_gravity="center_horizontal|bottom"
             android:clickable="true"
             android:enabled="true"
-            android:textColor="#ffffff"
-            android:background="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/rectangle_without_circle_small"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="4dp"
             android:layout_marginRight="30dp"
 
-            />
+            android:checked="false" />
 
         <ToggleButton
             android:layout_width="match_parent"
@@ -86,8 +90,8 @@
             android:layout_gravity="center_horizontal|bottom"
             android:clickable="true"
             android:enabled="true"
-            android:textColor="#ffffff"
-            android:background="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/rectangle_without_circle_small"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="4dp"
@@ -103,8 +107,8 @@
             android:layout_gravity="center_horizontal|bottom"
             android:clickable="true"
             android:enabled="true"
-            android:textColor="#ffffff"
-            android:background="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/rectangle_without_circle_small"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="0dp"
             android:layout_marginRight="30dp"
