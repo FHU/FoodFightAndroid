@@ -24,7 +24,6 @@ public class MealDetailsFragment extends Fragment {
 //    private OnFragmentInteractionListener mListener;
     private Meal mMeal;
     private static final String ARG_MEAL = "currentMeal";
-    private static Meal currentMeal;
     public MealDetailsFragment() {
         // Required empty public constructor
     }
@@ -56,7 +55,7 @@ public class MealDetailsFragment extends Fragment {
         TextView description = (TextView)v.findViewById(R.id.descriptionText);
         //if (currentMeal != null) {
 
-            description.setText(currentMeal.description);
+            description.setText(mMeal.description);
 
        // }
        /* else{
@@ -66,7 +65,7 @@ public class MealDetailsFragment extends Fragment {
         TextView mealType = (TextView)v.findViewById(R.id.mealTypeText);
        // if (currentMeal != null) {
 
-            switch(currentMeal.mealType)
+            switch(mMeal.mealType)
             {
                 case BREAKFAST:
                     mealType.setText("BREAKFAST");
@@ -85,8 +84,8 @@ public class MealDetailsFragment extends Fragment {
 
         }*/
         ImageView ImageView = (ImageView)v.findViewById(R.id.meal_image);
-        if (currentMeal != null) {
-            new ImageDownloader(ImageView).execute(currentMeal.imageURL);
+        if (mMeal != null) {
+            new ImageDownloader(ImageView).execute(mMeal.imageURL);
         }
 
         return v;

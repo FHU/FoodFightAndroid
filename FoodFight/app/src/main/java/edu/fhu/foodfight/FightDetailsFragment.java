@@ -32,6 +32,7 @@ public class FightDetailsFragment extends Fragment {
 
     // args used to pass to other fragments
     private static final String ARG_USER = "currentUser";
+    private static final String ARG_MEAL = "currentMeal";
 
     private static User currentUser = DummyContent.CurrentUser;
     private static User opponent;
@@ -187,11 +188,16 @@ public class FightDetailsFragment extends Fragment {
 
                 if (userBreakfast != null) {
                     fragment = new MealDetailsFragment();
+                    ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, userBreakfast.id);
+                    fragment.setArguments(args);
                 } else {
                     fragment = new CameraFragment();
+                    ft.replace(R.id.content_frame, fragment);
                 }
 
-                ft.replace(R.id.content_frame, fragment);
                 ft.commit();
             }
         });
@@ -208,6 +214,11 @@ public class FightDetailsFragment extends Fragment {
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     fragment = new MealDetailsFragment();
                     ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, opponentBreakfast.id);
+                    fragment.setArguments(args);
+
                     ft.commit();
                 }
             }
@@ -225,11 +236,16 @@ public class FightDetailsFragment extends Fragment {
 
                 if (userLunch != null) {
                     fragment = new MealDetailsFragment();
+                    ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, userLunch.id);
+                    fragment.setArguments(args);
                 } else {
                     fragment = new CameraFragment();
+                    ft.replace(R.id.content_frame, fragment);
                 }
 
-                ft.replace(R.id.content_frame, fragment);
                 ft.commit();
             }
         });
@@ -246,6 +262,10 @@ public class FightDetailsFragment extends Fragment {
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     fragment = new MealDetailsFragment();
                     ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, opponentLunch.id);
+                    fragment.setArguments(args);
                     ft.commit();
                 }
             }
@@ -263,11 +283,16 @@ public class FightDetailsFragment extends Fragment {
 
                 if (userDinner != null) {
                     fragment = new MealDetailsFragment();
+                    ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, userDinner.id);
+                    fragment.setArguments(args);
                 } else {
                     fragment = new CameraFragment();
+                    ft.replace(R.id.content_frame, fragment);
                 }
 
-                ft.replace(R.id.content_frame, fragment);
                 ft.commit();
             }
         });
@@ -284,6 +309,11 @@ public class FightDetailsFragment extends Fragment {
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     fragment = new MealDetailsFragment();
                     ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, opponentDinner.id);
+                    fragment.setArguments(args);
+
                     ft.commit();
                 }
             }
