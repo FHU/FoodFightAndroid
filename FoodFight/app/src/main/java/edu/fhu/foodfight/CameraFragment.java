@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -18,7 +19,18 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 import android.widget.CompoundButton;
 import android.graphics.Color;
-
+import android.widget.EditText;
+import android.app.Activity;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.view.View.OnTouchListener;
+import android.content.Intent;
+import android.provider.MediaStore;
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CameraFragment#newInstance} factory method to
@@ -73,13 +85,10 @@ public class CameraFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        Log.i("onCreatetog1: ", Boolean.toString(tog1));
-        Log.i("onCreatetog2: ", Boolean.toString(tog2));
-        Log.i("onCreatetog3: ", Boolean.toString(tog3));
         View myInflatedView = inflater.inflate(R.layout.fragment_camera, container, false);
 //
-//        RelativeLayout cameraLayout = (RelativeLayout) myInflatedView.findViewById(R.id.cameraRelativeLayout);
-//        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) cameraLayout.getLayoutParams();
+        final RelativeLayout cameraLayout = (RelativeLayout) myInflatedView.findViewById(R.id.cameraRelativeLayout);
+        //FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) cameraLayout.getLayoutParams();
 //        params.height = params.width;
 //        Log.i("get messured width", Integer.toString(cameraLayout.getWidth()));
 //        Log.i("params.width", Integer.toString(params.width));
@@ -88,6 +97,33 @@ public class CameraFragment extends Fragment {
 //        Log.i("windows", Integer.toString((wlp.width)));
 //        cameraLayout.postInvalidate();
 
+
+        final EditText myTextBox = (EditText) myInflatedView.findViewById(R.id.editText);
+        myTextBox.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                }
+            }
+
+        });
+        myTextBox.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {
+
+            }
+
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+
+            }
+
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+
+            }
+        });
 
         final ToggleButton toggle1 = (ToggleButton) myInflatedView.findViewById(R.id.toggleButton1);
         toggle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -105,7 +141,6 @@ public class CameraFragment extends Fragment {
                 } else {
                     toggle1.setChecked(!isChecked);
                 }
-                Log.i("tog1: ", Boolean.toString(tog1));
             }
         });
 
@@ -126,7 +161,6 @@ public class CameraFragment extends Fragment {
                 } else {
                     toggle2.setChecked(!isChecked);
                 }
-                Log.i("tog2: ", Boolean.toString(tog2));
             }
 
         });
@@ -144,7 +178,6 @@ public class CameraFragment extends Fragment {
                         toggle3.setTextColor(getResources().getColor(R.color.colorPrimary));
                         tog3 = false;
                     }
-                    Log.i("tog3: ", Boolean.toString(tog3));
                 } else {
                     toggle3.setChecked(!isChecked);
                 }
@@ -152,10 +185,36 @@ public class CameraFragment extends Fragment {
 
         });
 
+        final ImageButton imageButton = (ImageButton) myInflatedView.findViewById(R.id.imageButton);
+
+        imageButton.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN){
+
+                }
+                else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    dispatchTakePictureIntent();
+                }
+
+                return false;
+            }
+        });
+
+        Button myBtn = (Button) myInflatedView.findViewById(R.id.submitButton);
+        myBtn.requestFocus();
 
         return myInflatedView;
 
     }
 
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//        }
+    }
 
 }
