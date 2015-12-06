@@ -51,22 +51,27 @@ public class MealDetailsFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_meal_details, null);
 
 
+        TextView description = (TextView) v.findViewById(R.id.descriptionText);
+        TextView mealType = (TextView) v.findViewById(R.id.mealTypeText);
+        ImageView ImageView = (ImageView) v.findViewById(R.id.meal_image);
 
-        TextView description = (TextView)v.findViewById(R.id.descriptionText);
-        //if (currentMeal != null) {
+
+<<<<<<< HEAD
+            description.setText(mMeal.description);
+=======
+        if (mMeal != null) {
+            new ImageDownloader(ImageView).execute(mMeal.imageURL);
+>>>>>>> origin/master
+
 
             description.setText(mMeal.description);
 
-       // }
-       /* else{
-            description.setText("No Description...");
-
-        }*/
-        TextView mealType = (TextView)v.findViewById(R.id.mealTypeText);
-       // if (currentMeal != null) {
-
+<<<<<<< HEAD
             switch(mMeal.mealType)
             {
+=======
+            switch (mMeal.mealType) {
+>>>>>>> origin/master
                 case BREAKFAST:
                     mealType.setText("BREAKFAST");
                     break;
@@ -74,10 +79,12 @@ public class MealDetailsFragment extends Fragment {
                     mealType.setText("LUNCH");
                     break;
                 case DINNER:
-                    mealType.setText("Dinner");
+                    mealType.setText("DINNER");
                 default:
                     break;
+
             }
+<<<<<<< HEAD
        // }
        /* else{
             mealType.setText("No MealType...");
@@ -86,12 +93,13 @@ public class MealDetailsFragment extends Fragment {
         ImageView ImageView = (ImageView)v.findViewById(R.id.meal_image);
         if (mMeal != null) {
             new ImageDownloader(ImageView).execute(mMeal.imageURL);
+=======
+>>>>>>> origin/master
         }
 
         return v;
+
     }
-
-
 
 
 //    // TODO: Rename method, update argument and hook method into UI event
