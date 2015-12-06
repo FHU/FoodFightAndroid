@@ -39,6 +39,7 @@
             android:layout_marginTop="20pt">
 
         <TextView
+            android:id="@+id/levelText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
@@ -47,6 +48,7 @@
             android:textSize="12pt"
             />
         <TextView
+            android:id="@+id/pointsText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
@@ -99,7 +101,7 @@
             android:layout_below="@id/profileLinearLayout"
             android:paddingTop="20pt">
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/gamesPlayedText"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="4"
@@ -112,7 +114,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="Games Played"
-                android:textSize="10pt"
+                android:textSize="8pt"
                 android:gravity="center"
                 />
 
@@ -128,7 +130,7 @@
                 android:layout_below="@id/profileLinearLayout"
                 android:paddingTop="20pt">
                 <TextView
-                    android:id="@+id/three"
+                    android:id="@+id/winsText"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="4"
@@ -141,7 +143,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="Wins"
-                    android:textSize="10pt"
+                    android:textSize="8pt"
                     android:gravity="center"
                     />
 
@@ -187,6 +189,7 @@
                 android:layout_below="@id/firstRowLinearLayout"
                 android:paddingTop="20pt">
                 <TextView
+                    android:id="@+id/averageScoreText"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="4"
@@ -199,7 +202,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="Average Score"
-                    android:textSize="10pt"
+                    android:textSize="8pt"
                     android:gravity="center"
                     />
 
@@ -214,6 +217,7 @@
                 android:layout_below="@id/firstRowLinearLayout"
                 android:paddingTop="20pt">
                 <TextView
+                    android:id="@+id/averageBreakfastScoreText"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="4"
@@ -226,7 +230,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="Average Breakfast Score"
-                    android:textSize="10pt"
+                    android:textSize="8pt"
                     android:gravity="center"
                     />
 
@@ -276,6 +280,7 @@
                 android:layout_below="@id/secondRowLinearLayout"
                 android:paddingTop="20pt">
                 <TextView
+                    android:id="@+id/averageLunchScoreText"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="4"
@@ -288,7 +293,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="Average Lunch Score"
-                    android:textSize="10pt"
+                    android:textSize="8pt"
                     android:gravity="center"
                     />
 
@@ -303,6 +308,7 @@
                 android:layout_below="@id/secondRowLinearLayout"
                 android:paddingTop="20pt">
                 <TextView
+                    android:id="@+id/averageDinnerScoreText"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="4"
@@ -315,7 +321,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="Average Dinner Score"
-                    android:textSize="10pt"
+                    android:textSize="8pt"
                     android:gravity="center"
                     />
 
@@ -348,20 +354,17 @@
                 android:id="@+id/bestMealBreakfast"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"/>
+                android:layout_weight="1" />
             <edu.fhu.foodfight.SquareImageView
                 android:id="@+id/bestMealLunch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"/>
+                android:layout_weight="1" />
             <edu.fhu.foodfight.SquareImageView
                 android:id="@+id/bestMealDinner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"/>
+                android:layout_weight="1" />
 
 
         </LinearLayout>
@@ -417,24 +420,21 @@
             android:layout_below="@id/worstMealsTextView"
             android:orientation="horizontal">
 
-            <ImageView
+            <edu.fhu.foodfight.SquareImageView
                 android:id="@+id/worstMealBreakfast"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"/>
-            <ImageView
+                android:layout_weight="1" />
+            <edu.fhu.foodfight.SquareImageView
                 android:id="@+id/worstMealLunch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"/>
-            <ImageView
+                android:layout_weight="1" />
+            <edu.fhu.foodfight.SquareImageView
                 android:id="@+id/worstMealDinner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/plate7"/>
+                android:layout_weight="1" />
 
 
         </LinearLayout>
