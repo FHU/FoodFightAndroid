@@ -24,7 +24,6 @@ public class MealDetailsFragment extends Fragment {
 //    private OnFragmentInteractionListener mListener;
     private Meal mMeal;
     private static final String ARG_MEAL = "currentMeal";
-    private static Meal currentMeal;
     public MealDetailsFragment() {
         // Required empty public constructor
     }
@@ -52,22 +51,18 @@ public class MealDetailsFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_meal_details, null);
 
 
+        TextView description = (TextView) v.findViewById(R.id.descriptionText);
+        TextView mealType = (TextView) v.findViewById(R.id.mealTypeText);
+        ImageView ImageView = (ImageView) v.findViewById(R.id.meal_image);
 
-        TextView description = (TextView)v.findViewById(R.id.descriptionText);
-        //if (currentMeal != null) {
 
-            description.setText(currentMeal.description);
+        if (mMeal != null) {
+            new ImageDownloader(ImageView).execute(mMeal.imageURL);
 
-       // }
-       /* else{
-            description.setText("No Description...");
 
-        }*/
-        TextView mealType = (TextView)v.findViewById(R.id.mealTypeText);
-       // if (currentMeal != null) {
+            description.setText(mMeal.description);
 
-            switch(currentMeal.mealType)
-            {
+            switch (mMeal.mealType) {
                 case BREAKFAST:
                     mealType.setText("BREAKFAST");
                     break;
@@ -75,24 +70,16 @@ public class MealDetailsFragment extends Fragment {
                     mealType.setText("LUNCH");
                     break;
                 case DINNER:
-                    mealType.setText("Dinner");
+                    mealType.setText("DINNER");
                 default:
                     break;
-            }
-       // }
-       /* else{
-            mealType.setText("No MealType...");
 
-        }*/
-        ImageView ImageView = (ImageView)v.findViewById(R.id.meal_image);
-        if (currentMeal != null) {
-            new ImageDownloader(ImageView).execute(currentMeal.imageURL);
+            }
         }
 
         return v;
+
     }
-
-
 
 
 //    // TODO: Rename method, update argument and hook method into UI event
