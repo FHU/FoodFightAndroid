@@ -1,36 +1,38 @@
 package edu.fhu.foodfight;
 
-
-import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.content.BroadcastReceiver;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.DisplayMetrics;
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 import android.widget.CompoundButton;
 import android.graphics.Color;
 import android.widget.EditText;
-import android.app.Activity;
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.view.View.OnTouchListener;
 import android.content.Intent;
+import android.content.ContextWrapper;
+
+
 import android.provider.MediaStore;
+import android.net.Uri;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CameraFragment#newInstance} factory method to
@@ -80,6 +82,7 @@ public class CameraFragment extends Fragment {
     }
 
 
+    ImageButton imageButton;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -88,15 +91,6 @@ public class CameraFragment extends Fragment {
         View myInflatedView = inflater.inflate(R.layout.fragment_camera, container, false);
 //
         final RelativeLayout cameraLayout = (RelativeLayout) myInflatedView.findViewById(R.id.cameraRelativeLayout);
-        //FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) cameraLayout.getLayoutParams();
-//        params.height = params.width;
-//        Log.i("get messured width", Integer.toString(cameraLayout.getWidth()));
-//        Log.i("params.width", Integer.toString(params.width));
-//        Log.i("params.height", Integer.toString(params.height));
-//        WindowManager.LayoutParams wlp = new WindowManager.LayoutParams();
-//        Log.i("windows", Integer.toString((wlp.width)));
-//        cameraLayout.postInvalidate();
-
 
         final EditText myTextBox = (EditText) myInflatedView.findViewById(R.id.editText);
         myTextBox.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -104,26 +98,14 @@ public class CameraFragment extends Fragment {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
+                    cameraLayout.setVisibility(View.GONE);
+                } else {
+                    cameraLayout.setVisibility(View.VISIBLE);
                 }
             }
 
         });
-        myTextBox.addTextChangedListener(new TextWatcher() {
 
-            public void afterTextChanged(Editable s) {
-
-            }
-
-            public void beforeTextChanged(CharSequence s, int start,
-                                          int count, int after) {
-
-            }
-
-            public void onTextChanged(CharSequence s, int start,
-                                      int before, int count) {
-
-            }
-        });
 
         final ToggleButton toggle1 = (ToggleButton) myInflatedView.findViewById(R.id.toggleButton1);
         toggle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -185,7 +167,7 @@ public class CameraFragment extends Fragment {
 
         });
 
-        final ImageButton imageButton = (ImageButton) myInflatedView.findViewById(R.id.imageButton);
+        imageButton = (ImageButton) myInflatedView.findViewById(R.id.imageButton);
 
         imageButton.setOnTouchListener(new OnTouchListener() {
             @Override
@@ -194,6 +176,7 @@ public class CameraFragment extends Fragment {
 
                 }
                 else if (event.getAction() == MotionEvent.ACTION_UP) {
+
                     dispatchTakePictureIntent();
                 }
 
@@ -208,13 +191,47 @@ public class CameraFragment extends Fragment {
 
     }
 
-    static final int REQUEST_IMAGE_CAPTURE = 1;
+    private String mCurrentPhotoPath;
+    static final int REQUEST_TAKE_PHOTO = 1;
 
     private void dispatchTakePictureIntent() {
+        Log.i("2","2");
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-//            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-//        }
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+                Log.i("Error: ", ex.toString());
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                        Uri.fromFile(photoFile));
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }
+        }
+        Log.i("4","4");
     }
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        Log.i("3","3");
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
 
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        return image;
+    }
 }
+
