@@ -62,34 +62,37 @@ public class MealDetailsFragment extends Fragment {
         if (mMeal != null) {
             new ImageDownloader(ImageView).execute(mMeal.imageURL);
 
+            if (mMeal != null) {
+                new ImageDownloader(ImageView).execute(mMeal.imageURL);
 
-            description.setText(mMeal.description);
+                description.setText(mMeal.description);
 
-            switch (mMeal.mealType) {
-                case BREAKFAST:
-                    mealType.setText("BREAKFAST");
-                    break;
-                case LUNCH:
-                    mealType.setText("LUNCH");
-                    break;
-                case DINNER:
-                    mealType.setText("DINNER");
-                default:
-                    break;
+                switch (mMeal.mealType) {
+                    case BREAKFAST:
+                        mealType.setText("BREAKFAST");
+                        break;
+                    case LUNCH:
+                        mealType.setText("LUNCH");
+                        break;
+                    case DINNER:
+                        mealType.setText("DINNER");
+                    default:
+                        break;
 
-            }
-            // }
+                }
+
+                // }
        /* else{
             mealType.setText("No MealType...");
 
         }*/
-            ImageView imageView = (ImageView) v.findViewById(R.id.meal_image);
-            if (mMeal != null) {
-                new ImageDownloader(imageView).execute(mMeal.imageURL);
+                ImageView imageView = (ImageView) v.findViewById(R.id.meal_image);
+                if (mMeal != null) {
+                    new ImageDownloader(imageView).execute(mMeal.imageURL);
+
+                }
 
             }
-
-
         }
 
         return v;
