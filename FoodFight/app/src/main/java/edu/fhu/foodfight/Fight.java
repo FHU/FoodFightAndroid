@@ -14,6 +14,9 @@ public class Fight  {
 
     public String id;
 
+    public int userScore;
+    public int opponentScore;
+
     public String userId;
     public String opponentId = "";
 
@@ -34,6 +37,8 @@ public class Fight  {
             return false;
         }
     }
+
+    public Boolean isOver;
 
     public StringBuilder str_timeRemaining() {
         long difference = endDate.getTime() - startDate.getTime();
@@ -68,11 +73,14 @@ public class Fight  {
        this.currentMeal = meal;
     }
 
-    public Fight(Date startDate, Date endDate, String userId, String opponentId, String fightId ) {
+    public Fight(Date startDate, Date endDate, String userId, String opponentId, String fightId, int userScore, int opponentScore, Boolean isOver ) {
         this.id = fightId;
         this.startDate = startDate;
         this.endDate = endDate;
         this.userId = userId;
         this.opponentId = opponentId;
+        this.userScore = userScore;
+        this.opponentScore = opponentScore;
+        this.isOver = isOver;
     }
 }

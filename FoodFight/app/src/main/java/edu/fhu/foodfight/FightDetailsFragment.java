@@ -32,6 +32,7 @@ public class FightDetailsFragment extends Fragment {
 
     // args used to pass to other fragments
     private static final String ARG_USER = "currentUser";
+    private static final String ARG_MEAL = "currentMeal";
 
     private static User currentUser = DummyContent.CurrentUser;
     private static User opponent;
@@ -174,9 +175,12 @@ public class FightDetailsFragment extends Fragment {
 
         });
 
+        TextView userBreakfastScore = (TextView)v.findViewById(R.id.user_breakfast_score);
         ImageView userBreakfastImageView = (ImageView)v.findViewById(R.id.user_breakfast_image_view);
         if (userBreakfast != null) {
             new ImageDownloader(userBreakfastImageView).execute(userBreakfast.imageURL);
+            userBreakfastScore.setText(Integer.toString(userBreakfast.score));
+            userBreakfastScore.setVisibility(View.VISIBLE);
         }
         userBreakfastImageView.setOnClickListener(new OnClickListener() {
             @Override
@@ -187,18 +191,26 @@ public class FightDetailsFragment extends Fragment {
 
                 if (userBreakfast != null) {
                     fragment = new MealDetailsFragment();
+                    ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, userBreakfast.id);
+                    fragment.setArguments(args);
                 } else {
                     fragment = new CameraFragment();
+                    ft.replace(R.id.content_frame, fragment);
                 }
 
-                ft.replace(R.id.content_frame, fragment);
                 ft.commit();
             }
         });
 
+        TextView opponentBreakfastScore = (TextView)v.findViewById(R.id.opponent_breakfast_score);
         ImageView opponentBreakfastImageView = (ImageView)v.findViewById(R.id.opponent_breakfast_image_view);
         if (opponentBreakfast != null) {
             new ImageDownloader(opponentBreakfastImageView).execute(opponentBreakfast.imageURL);
+            opponentBreakfastScore.setText(Integer.toString(opponentBreakfast.score));
+            opponentBreakfastScore.setVisibility(View.VISIBLE);
         }
         opponentBreakfastImageView.setOnClickListener(new OnClickListener() {
             @Override
@@ -208,14 +220,22 @@ public class FightDetailsFragment extends Fragment {
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     fragment = new MealDetailsFragment();
                     ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, opponentBreakfast.id);
+                    fragment.setArguments(args);
+
                     ft.commit();
                 }
             }
         });
 
+        TextView userLunchScore = (TextView)v.findViewById(R.id.user_lunch_score);
         ImageView userLunchImageView = (ImageView)v.findViewById(R.id.user_lunch_image_view);
         if (userLunch != null) {
             new ImageDownloader(userLunchImageView).execute(userLunch.imageURL);
+            userLunchScore.setText(Integer.toString(userLunch.score));
+            userLunchScore.setVisibility(View.VISIBLE);
         }
         userLunchImageView.setOnClickListener(new OnClickListener() {
             @Override
@@ -225,18 +245,26 @@ public class FightDetailsFragment extends Fragment {
 
                 if (userLunch != null) {
                     fragment = new MealDetailsFragment();
+                    ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, userLunch.id);
+                    fragment.setArguments(args);
                 } else {
                     fragment = new CameraFragment();
+                    ft.replace(R.id.content_frame, fragment);
                 }
 
-                ft.replace(R.id.content_frame, fragment);
                 ft.commit();
             }
         });
 
+        TextView opponentLunchScore = (TextView)v.findViewById(R.id.opponent_lunch_score);
         ImageView opponentLunchImageView = (ImageView)v.findViewById(R.id.opponent_lunch_image_view);
         if (opponentLunch != null) {
             new ImageDownloader(opponentLunchImageView).execute(opponentLunch.imageURL);
+            opponentLunchScore.setText(Integer.toString(opponentLunch.score));
+            opponentLunchScore.setVisibility(View.VISIBLE);
         }
         opponentLunchImageView.setOnClickListener(new OnClickListener() {
             @Override
@@ -246,14 +274,21 @@ public class FightDetailsFragment extends Fragment {
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     fragment = new MealDetailsFragment();
                     ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, opponentLunch.id);
+                    fragment.setArguments(args);
                     ft.commit();
                 }
             }
         });
 
+        TextView userDinnerScore = (TextView)v.findViewById(R.id.user_dinner_score);
         ImageView userDinnerImageView = (ImageView)v.findViewById(R.id.user_dinner_image_view);
         if (userDinner != null) {
             new ImageDownloader(userDinnerImageView).execute(userDinner.imageURL);
+            userDinnerScore.setText(Integer.toString(userDinner.score));
+            userDinnerScore.setVisibility(View.VISIBLE);
         }
         userDinnerImageView.setOnClickListener(new OnClickListener() {
             @Override
@@ -263,18 +298,26 @@ public class FightDetailsFragment extends Fragment {
 
                 if (userDinner != null) {
                     fragment = new MealDetailsFragment();
+                    ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, userDinner.id);
+                    fragment.setArguments(args);
                 } else {
                     fragment = new CameraFragment();
+                    ft.replace(R.id.content_frame, fragment);
                 }
 
-                ft.replace(R.id.content_frame, fragment);
                 ft.commit();
             }
         });
 
+        TextView opponentDinnerScore = (TextView)v.findViewById(R.id.opponent_dinner_score);
         ImageView opponentDinnerImageView = (ImageView)v.findViewById(R.id.opponent_dinner_image_view);
         if (opponentDinner != null) {
             new ImageDownloader(opponentDinnerImageView).execute(opponentDinner.imageURL);
+            opponentDinnerScore.setText(Integer.toString(opponentDinner.score));
+            opponentDinnerScore.setVisibility(View.VISIBLE);
         }
         opponentDinnerImageView.setOnClickListener(new OnClickListener() {
             @Override
@@ -284,6 +327,11 @@ public class FightDetailsFragment extends Fragment {
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     fragment = new MealDetailsFragment();
                     ft.replace(R.id.content_frame, fragment);
+
+                    Bundle args = new Bundle();
+                    args.putString(ARG_MEAL, opponentDinner.id);
+                    fragment.setArguments(args);
+
                     ft.commit();
                 }
             }

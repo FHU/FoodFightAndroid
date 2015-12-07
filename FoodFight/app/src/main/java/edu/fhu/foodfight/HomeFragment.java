@@ -13,6 +13,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.Toast;
 
 import edu.fhu.foodfight.dummy.DummyContent;
 
@@ -70,6 +79,11 @@ public class HomeFragment extends Fragment {
 
     }
 
+    FightsAdapter fightsListAdapter;
+    ExpandableListView fightsListView;
+    List<String> fightSections;
+    HashMap<String, List<Fight>> fightSectionChildData;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -77,25 +91,6 @@ public class HomeFragment extends Fragment {
 
         View homeView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        /*final Fight[] fights = {new Fight(new Date(), new Date() , "Jesse", "Avery", 1),
-                new Fight(new Date(), new Date() , "Jesse", "Seth", 1),
-                new Fight(new Date(), new Date() , "Jesse", "Tyler", 1),
-                new Fight(new Date(), new Date() , "Jesse", "Eli", 2),
-                new Fight(new Date(), new Date() , "Jesse", "Kenan", 1),
-                new Fight(new Date(), new Date() , "Jesse", "Audrey", 2),
-                new Fight(new Date(), new Date() , "Jesse", "Jason", 1),
-                new Fight(new Date(), new Date() , "Jesse", "Wesley", 2)
-        };
-
-        final Fight[] finishedFights = {new Fight(new Date(), new Date() , "Jesse", "Avery", 1),
-                new Fight(new Date(), new Date() , "Jesse", "Seth", 1),
-                new Fight(new Date(), new Date() , "Jesse", "Tyler", 1),
-                new Fight(new Date(), new Date() , "Jesse", "Eli", 2),
-                new Fight(new Date(), new Date() , "Jesse", "Kenan", 1),
-                new Fight(new Date(), new Date() , "Jesse", "Audrey", 2),
-                new Fight(new Date(), new Date() , "Jesse", "Jason", 1),
-                new Fight(new Date(), new Date() , "Jesse", "Wesley", 2)
-        };*/
 
         FloatingActionButton fab = (FloatingActionButton) homeView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -105,38 +100,37 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        FightsAdapter fightAdapter = new FightsAdapter(this.getActivity(), DummyContent.Fights );
-        FightsAdapter finishedFightsAdapter = new FightsAdapter(this.getActivity(), DummyContent.Fights);
-        ListView fightListView = (ListView) homeView.findViewById(R.id.currentfights);
-        ListView finishedFightsListView = (ListView) homeView.findViewById(R.id.finishedFights);
-        fightListView.setAdapter(fightAdapter);
-        finishedFightsListView.setAdapter(fightAdapter);
+//        FightsAdapter fightAdapter = new FightsAdapter(this.getActivity(), DummyContent.Fights );
+//        FightsAdapter finishedFightsAdapter = new FightsAdapter(this.getActivity(), DummyContent.Fights);
+//        ExpandableListView fightListView = (ListView) homeView.findViewById(R.id.currentfights);
+//        ListView finishedFightsListView = (ListView) homeView.findViewById(R.id.finishedFights);
+//        fightListView.setAdapter(fightAdapter);
+//        finishedFightsListView.setAdapter(fightAdapter);
 
-        fightAdapter.notifyDataSetChanged();
+        fightsListView = (ExpandableListView) homeView.findViewById(R.id.fightsExpandableListView);
 
-        fightListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        fightSections = new ArrayList<String>();
+        fightSections.add("Current Fights (" + DummyContent.getCurrentFights().size() + ")");
+        fightSections.add("Finished Fights (" + DummyContent.getFinishedFights().size() + ")");
+
+        fightSectionChildData = new HashMap<String, List<Fight>>();
+        fightSectionChildData.put(fightSections.get(0), DummyContent.getCurrentFights());
+        fightSectionChildData.put(fightSections.get(1), DummyContent.getFinishedFights());
+
+
+        fightsListAdapter = new FightsAdapter(getActivity().getApplicationContext(), fightSections, fightSectionChildData);
+
+        fightsListView.setAdapter(fightsListAdapter);
+
+        // Listview on child click listener
+        fightsListView.setOnChildClickListener(new OnChildClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1,
-                                    int position, long arg3) {
-                // TODO Auto-generated method stub
-
-                viewFight(DummyContent.Fights.get(position));
-
-
-            }
-        });
-
-        finishedFightsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1,
-                                    int position, long arg3) {
-                // TODO Auto-generated method stub
-
-                viewFight(DummyContent.Fights.get(position));
-
-
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                Fight fightToView = (Fight) fightsListAdapter.getChild(groupPosition, childPosition);
+                viewFight(DummyContent.FightsMap.get(fightToView.id));
+                return false;
             }
         });
 
